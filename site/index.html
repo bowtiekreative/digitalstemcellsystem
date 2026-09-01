@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DigitalStemCell API — the LAKA Volumetric Grammar as a REST service</title>
+<meta name="description" content="A public REST API over the LAKA Volumetric Grammar: 700 base coordinates, six operating modes, seventeen operators, run schema and scoring rubric.">
+<link rel="canonical" href="https://digitalstemcell.bowtiekreative.com/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="DigitalStemCell">
+<meta property="og:title" content="DigitalStemCell API — the LAKA Volumetric Grammar as a REST service">
+<meta property="og:description" content="A public REST API over the LAKA Volumetric Grammar: 700 base coordinates, six operating modes, seventeen operators, run schema and scoring rubric.">
+<meta property="og:url" content="https://digitalstemcell.bowtiekreative.com/">
+<meta property="og:image" content="https://designsystem.bowtiekreative.com/brand/btk-seal.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="DigitalStemCell API — the LAKA Volumetric Grammar as a REST service">
+<meta name="twitter:description" content="A public REST API over the LAKA Volumetric Grammar: 700 base coordinates, six operating modes, seventeen operators, run schema and scoring rubric.">
+<link rel="icon" sizes="32x32" href="https://designsystem.bowtiekreative.com/brand/favicon-32.png">
+<link rel="apple-touch-icon" href="https://designsystem.bowtiekreative.com/brand/apple-touch-icon-180.png">
+<link rel="preconnect" href="https://api.digitalstemcell.bowtiekreative.com">
+<link rel="stylesheet" href="https://designsystem.bowtiekreative.com/dist/laka.css">
+<link rel="stylesheet" href="/assets/site.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebAPI","name":"DigitalStemCell API","description":"The LAKA Volumetric Grammar as a REST service: 700 base coordinates, six operating modes, seventeen operators, run schema and scoring rubric.","documentation":"https://digitalstemcell.bowtiekreative.com/reference.html","provider":{"@type":"Organization","name":"Bow Tie Kreative","url":"https://bowtiekreative.com"}}
+</script>
+</head>
+<body class="laka">
+<a class="skip" href="#main">Skip to content</a>
+
+<div class="site-header">
+  <header class="laka-header">
+    <div class="laka-header__left">
+      <a href="/" aria-label="DigitalStemCell home">
+        <img class="laka-header__seal" src="https://designsystem.bowtiekreative.com/brand/btk-seal-white.png" alt="Bow Tie Kreative" width="34" height="34">
+      </a>
+      <a class="laka-header__name" href="/">Digital <span>StemCell</span></a>
+    </div>
+    <div class="laka-header__right">
+      <button class="laka-btn laka-btn--outline" data-laka-menu="#megamenu" aria-expanded="false" aria-controls="megamenu">Menu</button>
+      <a class="laka-btn laka-btn--primary" href="/reference.html">API Reference</a>
+    </div>
+  </header>
+  <nav class="megamenu" id="megamenu" hidden aria-label="Main">
+    <div class="megamenu__inner">
+      <div>
+        <h2>Documentation</h2>
+        <ul>
+          <li><a href="/">Overview<small>What the grammar is and how to call it</small></a></li>
+          <li><a href="/grammar.html">The Grammar<small>Axes, grid, coordinates, operators</small></a></li>
+          <li><a href="/reference.html">API Reference<small>Every endpoint, parameter and response</small></a></li>
+          <li><a href="/explorer.html">Explorer<small>Run live calls against the API</small></a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Machine readable</h2>
+        <ul>
+          <li><a href="https://api.digitalstemcell.bowtiekreative.com/v1/openapi.json">OpenAPI 3.1<small>The full specification</small></a></li>
+          <li><a href="https://api.digitalstemcell.bowtiekreative.com/llms.txt">llms.txt<small>Agent guide</small></a></li>
+          <li><a href="https://api.digitalstemcell.bowtiekreative.com/v1/docs">Interactive docs<small>Try requests in the browser</small></a></li>
+          <li><a href="https://api.digitalstemcell.bowtiekreative.com/v1">Service index<small>Live endpoint listing</small></a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Related</h2>
+        <ul>
+          <li><a href="https://designsystem.bowtiekreative.com">LAKA Design System<small>The design library this site is built from</small></a></li>
+          <li><a href="https://bowtiekreative.com">Bow Tie Kreative<small>The studio</small></a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</div>
+
+<main id="main">
+  <section class="laka-section hero">
+    <div class="lattice" aria-hidden="true"></div>
+    <div class="laka-section__inner hero__inner">
+      <p class="laka-eyebrow">Public REST API</p>
+      <h1 class="laka-display">A grammar for structured decisions.</h1>
+      <p class="laka-lede">The LAKA Volumetric Grammar treats any system as a sentence you can navigate:
+        five change levels &times; ten internal variables &times; fourteen meta-variables — 700 base
+        coordinates, each one a specific question about the system in front of you. This API serves all of it as JSON.</p>
+      <div class="hero__meta">
+        <span class="laka-chip">700 coordinates</span>
+        <span class="laka-chip">6 operating modes</span>
+        <span class="laka-chip">17 operators</span>
+        <span class="laka-chip">50-cell grid</span>
+        <span class="laka-chip">No API key</span>
+      </div>
+      <div class="hero__actions">
+        <a class="laka-btn laka-btn--primary" href="/reference.html">Read the reference</a>
+        <a class="laka-btn laka-btn--outline" href="/explorer.html">Open the explorer</a>
+      </div>
+    </div>
+  </section>
+  <section class="laka-section">
+    <div class="laka-section__inner">
+      <div class="stack stack--tight">
+        <p class="laka-eyebrow">Quickstart</p>
+        <h2>One call, no key, no signup.</h2>
+        <p class="laka-lede">Every GET endpoint is public. Resolve a coordinate to see the shape of the data.</p>
+      </div>
+<pre><code><span class="tok-c"># Structural Change x Feedback x Acceleration</span>
+curl <span class="tok-s">https://api.digitalstemcell.bowtiekreative.com/v1/coordinates/LAKA-C3-I07-M08</span></code></pre>
+<pre><code>{
+  <span class="tok-k">"id"</span>: <span class="tok-s">"LAKA-C3-I07-M08"</span>,
+  <span class="tok-k">"change_level"</span>:      { <span class="tok-k">"code"</span>: <span class="tok-s">"C3"</span>, <span class="tok-k">"label"</span>: <span class="tok-s">"Structural Change"</span>, ... },
+  <span class="tok-k">"internal_variable"</span>: { <span class="tok-k">"code"</span>: <span class="tok-s">"I07"</span>, <span class="tok-k">"label"</span>: <span class="tok-s">"Feedback"</span>, ... },
+  <span class="tok-k">"meta_variable"</span>:     { <span class="tok-k">"code"</span>: <span class="tok-s">"M08"</span>, <span class="tok-k">"label"</span>: <span class="tok-s">"Acceleration"</span>, ... },
+  <span class="tok-k">"grid_intent"</span>: <span class="tok-s">"Multiple adaptive loops across the system"</span>,
+  <span class="tok-k">"prompt"</span>: <span class="tok-s">"For [ACTOR] in [SCENARIO], ..."</span>
+}</code></pre>
+    </div>
+  </section>
+  <section class="laka-section">
+    <div class="laka-section__inner">
+      <div class="stack stack--tight">
+        <p class="laka-eyebrow">The volume</p>
+        <h2>Three axes multiply into one coordinate space.</h2>
+      </div>
+      <div class="laka-grid">
+        <article class="laka-card">
+          <h3 class="laka-card-title">5 change levels</h3>
+          <p>How far you are willing to move: <code>C0</code> Baseline, <code>C1</code> Minor Change, <code>C2</code> Major Change, <code>C3</code> Structural Change, <code>C4</code> Paradigm Change.</p>
+          <p class="laka-micro">GET /v1/axes/change-levels</p>
+        </article>
+        <article class="laka-card">
+          <h3 class="laka-card-title">10 internal variables</h3>
+          <p>The clauses of the system sentence: Object, Conditions, Actions, Tools, Resources, Outcomes, Feedback, Constraints, Value, Failure mode.</p>
+          <p class="laka-micro">GET /v1/axes/internal-variables</p>
+        </article>
+        <article class="laka-card">
+          <h3 class="laka-card-title">14 meta-variables</h3>
+          <p>How a clause can vary: Magnitude, Rate, Direction, Scope, Depth, Duration, Frequency, Acceleration, Variability, Detectability, Reversibility, Propagation, Amplification, Accumulation.</p>
+          <p class="laka-micro">GET /v1/axes/meta-variables</p>
+        </article>
+      </div>
+      <div class="laka-panel">
+        <h3>5 &times; 10 &times; 14 = 700</h3>
+        <p>A coordinate such as <code>LAKA-C3-I07-M08</code> reads as <strong>Structural Change &times; Feedback &times; Acceleration</strong>. It is a question slot — an analysis prompt — not a guaranteed distinct, feasible, novel or valuable innovation.</p>
+      </div>
+    </div>
+  </section>
+  <section class="laka-section">
+    <div class="laka-section__inner">
+      <div class="stack stack--tight">
+        <p class="laka-eyebrow">Endpoints</p>
+        <h2>22 routes across six groups.</h2>
+        <p class="laka-lede">Full parameters and response shapes are in the <a href="/reference.html">API reference</a>.</p>
+      </div>
+      <div class="endpoints">
+        <div class="endpoint"><span class="endpoint__method" data-m="GET">GET</span><span class="endpoint__path mono">/v1</span><span class="endpoint__summary">Service index: version, counts and the endpoint listing.</span></div>
+        <div class="endpoint"><span class="endpoint__method" data-m="GET">GET</span><span class="endpoint__path mono">/v1/health</span><span class="endpoint__summary">Liveness check. Returns the loaded coordinate count.</span></div>
+        <div class="endpoint"><span class="endpoint__method" data-m="GET">GET</span><span class="endpoint__path mono">/llms.txt</span><span class="endpoint__summary">Plain-text agent guide: what the grammar is, every route, and the typical flow.</span></div>
+        <div class="endpoint"><span class="endpoint__method" data-m="GET">GET</span><span class="endpoint__path mono">/v1/axes</span><span class="endpoint__summary">All three axes in one document, with the origin note and the illustrative-state warning.</span></div>
+        <div class="endpoint"><span class="endpoint__method" data-m="GET">GET</span><span class="endpoint__path mono">/v1/axes/{axis}</span><span class="endpoint__summary">One axis on its own.</span></div>
+        <div class="endpoint"><span class="endpoint__method" data-m="GET">GET</span><span class="endpoint__path mono">/v1/grid</span><span class="endpoint__summary">The 50-cell grid pairing each change level with each internal variable, and the intent of that pairing.</span></div>
+        <div class="endpoint"><span class="endpoint__method" data-m="GET">GET</span><span class="endpoint__path mono">/v1/coordinates/{code}</span><span class="endpoint__summary">Resolve a full coordinate into its three axis definitions, the grid intent and the prompt stem.</span></div>
+        <div class="endpoint"><span class="endpoint__method" data-m="GET">GET</span><span class="endpoint__path mono">/v1/prompts</span><span class="endpoint__summary">Search and page the 700 prompt stems. Filters combine with AND.</span></div>
+        <div class="endpoint"><span class="endpoint__method" data-m="GET">GET</span><span class="endpoint__path mono">/v1/prompts/{id}</span><span class="endpoint__summary">One prompt stem by coordinate id.</span></div>
+        <div class="endpoint"><span class="endpoint__method" data-m="GET">GET</span><span class="endpoint__path mono">/v1/modes</span><span class="endpoint__summary">The six operating modes plus the overview table as Markdown.</span></div>
+        <div class="endpoint"><span class="endpoint__method" data-m="GET">GET</span><span class="endpoint__path mono">/v1/modes/{id}</span><span class="endpoint__summary">One mode playbook as Markdown.</span></div>
+        <div class="endpoint"><span class="endpoint__method" data-m="GET">GET</span><span class="endpoint__path mono">/v1/operators</span><span class="endpoint__summary">The seventeen operators with definition, input, output, guardrail and example.</span></div>
+        <div class="endpoint"><span class="endpoint__method" data-m="GET">GET</span><span class="endpoint__path mono">/v1/operators/{name}</span><span class="endpoint__summary">One operator. Case-insensitive.</span></div>
+        <div class="endpoint"><span class="endpoint__method" data-m="GET">GET</span><span class="endpoint__path mono">/v1/core</span><span class="endpoint__summary">The seven core framework extracts, listed by id and title.</span></div>
+        <div class="endpoint"><span class="endpoint__method" data-m="GET">GET</span><span class="endpoint__path mono">/v1/core/{id}</span><span class="endpoint__summary">One core extract as Markdown.</span></div>
+        <div class="endpoint"><span class="endpoint__method" data-m="GET">GET</span><span class="endpoint__path mono">/v1/templates</span><span class="endpoint__summary">The five working templates, listed by id and title.</span></div>
+        <div class="endpoint"><span class="endpoint__method" data-m="GET">GET</span><span class="endpoint__path mono">/v1/templates/{id}</span><span class="endpoint__summary">One template as Markdown.</span></div>
+        <div class="endpoint"><span class="endpoint__method" data-m="GET">GET</span><span class="endpoint__path mono">/v1/schema/run</span><span class="endpoint__summary">The JSON Schema (2020-12) a run document must satisfy.</span></div>
+        <div class="endpoint"><span class="endpoint__method" data-m="GET">GET</span><span class="endpoint__path mono">/v1/schema/blank-run</span><span class="endpoint__summary">An empty, schema-valid run document to fill in.</span></div>
+        <div class="endpoint"><span class="endpoint__method" data-m="GET">GET</span><span class="endpoint__path mono">/v1/scoring</span><span class="endpoint__summary">The seven weighted criteria, the four hard gates, the rating anchors and the formula.</span></div>
+        <div class="endpoint"><span class="endpoint__method" data-m="POST">POST</span><span class="endpoint__path mono">/v1/score</span><span class="endpoint__summary">Weight a set of 0–4 ratings into a 0–100 comparison index, with the per-criterion contribution shown.</span></div>
+        <div class="endpoint"><span class="endpoint__method" data-m="POST">POST</span><span class="endpoint__path mono">/v1/validate</span><span class="endpoint__summary">Validate a run document against the run schema. Returns every error with its JSON path.</span></div>
+      </div>
+    </div>
+  </section>
+  <section class="laka-section">
+    <div class="laka-section__inner">
+      <div class="stack stack--tight">
+        <p class="laka-eyebrow">Honesty</p>
+        <h2>What this is not.</h2>
+      </div>
+      <div class="laka-banner laka-banner--warning" role="note">
+        <p><strong>A specification and working toolkit — not a validated forecasting system.</strong></p>
+      </div>
+      <div class="laka-grid">
+        <article class="laka-card"><h3 class="laka-card-title">Coordinates are questions</h3><p>An unfilled cell does not establish novelty or demand. Filling one produces an observation, assumption, hypothesis or documented not-applicable result — nothing stronger.</p></article>
+        <article class="laka-card"><h3 class="laka-card-title">State ladders are vocabularies</h3><p>The illustrative states are not calibrated ordinal scales and do not map onto change levels.</p></article>
+        <article class="laka-card"><h3 class="laka-card-title">The score is an index</h3><p><code>/v1/score</code> returns an analyst-defined comparison number from 0 to 100. It is not a success probability.</p></article>
+        <article class="laka-card"><h3 class="laka-card-title">DECODE is not proof</h3><p>A decoded explanation of a system is not proof of intent or wrongdoing.</p></article>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="site-footer__inner">
+    <div class="site-footer__cols">
+      <div>
+        <h2>Documentation</h2>
+        <ul>
+          <li><a href="/">Overview</a></li>
+          <li><a href="/grammar.html">The Grammar</a></li>
+          <li><a href="/reference.html">API Reference</a></li>
+          <li><a href="/explorer.html">Explorer</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Machine readable</h2>
+        <ul>
+          <li><a href="https://api.digitalstemcell.bowtiekreative.com/v1/openapi.json">OpenAPI 3.1</a></li>
+          <li><a href="https://api.digitalstemcell.bowtiekreative.com/llms.txt">llms.txt</a></li>
+          <li><a href="https://api.digitalstemcell.bowtiekreative.com/v1/docs">Interactive docs</a></li>
+          <li><a href="https://api.digitalstemcell.bowtiekreative.com/v1">Service index</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Related</h2>
+        <ul>
+          <li><a href="https://designsystem.bowtiekreative.com">LAKA Design System</a></li>
+          <li><a href="https://bowtiekreative.com">Bow Tie Kreative</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="legal">
+      <span>LAKA Volumetric Grammar v1.0-draft · API v1.0.0</span>
+      <span>Powered by <a href="https://bowtiekreative.com">Bow Tie Kreative</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="https://designsystem.bowtiekreative.com/dist/laka.js" defer></script>
+<script src="/assets/site.js" defer></script>
+</body>
+</html>

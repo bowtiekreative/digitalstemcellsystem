@@ -1,0 +1,512 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>API Reference — DigitalStemCell API</title>
+<meta name="description" content="Every DigitalStemCell endpoint with parameters, examples and error codes. Public, no API key required.">
+<link rel="canonical" href="https://digitalstemcell.bowtiekreative.com/reference.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="DigitalStemCell">
+<meta property="og:title" content="API Reference — DigitalStemCell API">
+<meta property="og:description" content="Every DigitalStemCell endpoint with parameters, examples and error codes. Public, no API key required.">
+<meta property="og:url" content="https://digitalstemcell.bowtiekreative.com/reference.html">
+<meta property="og:image" content="https://designsystem.bowtiekreative.com/brand/btk-seal.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="API Reference — DigitalStemCell API">
+<meta name="twitter:description" content="Every DigitalStemCell endpoint with parameters, examples and error codes. Public, no API key required.">
+<link rel="icon" sizes="32x32" href="https://designsystem.bowtiekreative.com/brand/favicon-32.png">
+<link rel="apple-touch-icon" href="https://designsystem.bowtiekreative.com/brand/apple-touch-icon-180.png">
+<link rel="preconnect" href="https://api.digitalstemcell.bowtiekreative.com">
+<link rel="stylesheet" href="https://designsystem.bowtiekreative.com/dist/laka.css">
+<link rel="stylesheet" href="/assets/site.css">
+
+</head>
+<body class="laka">
+<a class="skip" href="#main">Skip to content</a>
+
+<div class="site-header">
+  <header class="laka-header">
+    <div class="laka-header__left">
+      <a href="/" aria-label="DigitalStemCell home">
+        <img class="laka-header__seal" src="https://designsystem.bowtiekreative.com/brand/btk-seal-white.png" alt="Bow Tie Kreative" width="34" height="34">
+      </a>
+      <a class="laka-header__name" href="/">Digital <span>StemCell</span></a>
+    </div>
+    <div class="laka-header__right">
+      <button class="laka-btn laka-btn--outline" data-laka-menu="#megamenu" aria-expanded="false" aria-controls="megamenu">Menu</button>
+      <a class="laka-btn laka-btn--primary" href="/explorer.html">Explorer</a>
+    </div>
+  </header>
+  <nav class="megamenu" id="megamenu" hidden aria-label="Main">
+    <div class="megamenu__inner">
+      <div>
+        <h2>Documentation</h2>
+        <ul>
+          <li><a href="/">Overview<small>What the grammar is and how to call it</small></a></li>
+          <li><a href="/grammar.html">The Grammar<small>Axes, grid, coordinates, operators</small></a></li>
+          <li><a href="/reference.html">API Reference<small>Every endpoint, parameter and response</small></a></li>
+          <li><a href="/explorer.html">Explorer<small>Run live calls against the API</small></a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Machine readable</h2>
+        <ul>
+          <li><a href="https://api.digitalstemcell.bowtiekreative.com/v1/openapi.json">OpenAPI 3.1<small>The full specification</small></a></li>
+          <li><a href="https://api.digitalstemcell.bowtiekreative.com/llms.txt">llms.txt<small>Agent guide</small></a></li>
+          <li><a href="https://api.digitalstemcell.bowtiekreative.com/v1/docs">Interactive docs<small>Try requests in the browser</small></a></li>
+          <li><a href="https://api.digitalstemcell.bowtiekreative.com/v1">Service index<small>Live endpoint listing</small></a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Related</h2>
+        <ul>
+          <li><a href="https://designsystem.bowtiekreative.com">LAKA Design System<small>The design library this site is built from</small></a></li>
+          <li><a href="https://bowtiekreative.com">Bow Tie Kreative<small>The studio</small></a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</div>
+
+<main id="main">
+  <section class="laka-section">
+    <div class="laka-section__inner">
+      <div class="stack stack--tight">
+        <p class="laka-eyebrow">Reference</p>
+        <h1>API reference</h1>
+        <p class="laka-lede">Base URL <code>https://api.digitalstemcell.bowtiekreative.com</code>. Every endpoint is public — no key, no signup. Responses are JSON and carry <code>Cache-Control: public, max-age=3600</code>. The authoritative machine-readable contract is the <a href="https://api.digitalstemcell.bowtiekreative.com/v1/openapi.json">OpenAPI 3.1 document</a>.</p>
+      </div>
+      <div class="ref">
+      <nav class="toc" aria-label="On this page">
+        <strong>Meta</strong>
+        <a href="#get-index">/v1</a>
+        <a href="#get-health">/v1/health</a>
+        <a href="#get-llms">/llms.txt</a>
+        <strong>Grammar</strong>
+        <a href="#get-axes">/v1/axes</a>
+        <a href="#get-axis">/v1/axes/{axis}</a>
+        <a href="#get-grid">/v1/grid</a>
+        <a href="#get-coordinate">/v1/coordinates/{code}</a>
+        <strong>Prompts</strong>
+        <a href="#get-prompts">/v1/prompts</a>
+        <a href="#get-prompt">/v1/prompts/{id}</a>
+        <strong>Modes and operators</strong>
+        <a href="#get-modes">/v1/modes</a>
+        <a href="#get-mode">/v1/modes/{id}</a>
+        <a href="#get-operators">/v1/operators</a>
+        <a href="#get-operator">/v1/operators/{name}</a>
+        <strong>Reference material</strong>
+        <a href="#get-core">/v1/core</a>
+        <a href="#get-core-item">/v1/core/{id}</a>
+        <a href="#get-templates">/v1/templates</a>
+        <a href="#get-template">/v1/templates/{id}</a>
+        <a href="#get-schema-run">/v1/schema/run</a>
+        <a href="#get-schema-blank">/v1/schema/blank-run</a>
+        <a href="#get-scoring">/v1/scoring</a>
+        <strong>Compute</strong>
+        <a href="#post-score">/v1/score</a>
+        <a href="#post-validate">/v1/validate</a>
+      </nav>
+      <div>
+        <article class="op" id="get-index">
+          <div class="op__head">
+            <span class="endpoint__method" data-m="GET">GET</span>
+            <h3 class="mono">/v1</h3>
+          </div>
+          <p>Service index: version, counts and the endpoint listing.</p>
+<pre><code>curl https://api.digitalstemcell.bowtiekreative.com/v1</code></pre>
+        </article>
+        <article class="op" id="get-health">
+          <div class="op__head">
+            <span class="endpoint__method" data-m="GET">GET</span>
+            <h3 class="mono">/v1/health</h3>
+          </div>
+          <p>Liveness check. Returns the loaded coordinate count.</p>
+<pre><code>curl https://api.digitalstemcell.bowtiekreative.com/v1/health</code></pre>
+        </article>
+        <article class="op" id="get-llms">
+          <div class="op__head">
+            <span class="endpoint__method" data-m="GET">GET</span>
+            <h3 class="mono">/llms.txt</h3>
+          </div>
+          <p>Plain-text agent guide: what the grammar is, every route, and the typical flow.</p>
+<pre><code>curl https://api.digitalstemcell.bowtiekreative.com/llms.txt</code></pre>
+        </article>
+        <article class="op" id="get-axes">
+          <div class="op__head">
+            <span class="endpoint__method" data-m="GET">GET</span>
+            <h3 class="mono">/v1/axes</h3>
+          </div>
+          <p>All three axes in one document, with the origin note and the illustrative-state warning.</p>
+<pre><code>curl https://api.digitalstemcell.bowtiekreative.com/v1/axes</code></pre>
+        </article>
+        <article class="op" id="get-axis">
+          <div class="op__head">
+            <span class="endpoint__method" data-m="GET">GET</span>
+            <h3 class="mono">/v1/axes/{axis}</h3>
+          </div>
+          <p>One axis on its own.</p>
+          <div class="table-wrap">
+          <table>
+            <thead><tr><th>Name</th><th>In</th><th>Required</th><th>Description</th></tr></thead>
+            <tbody>
+              <tr><td><code>axis</code></td><td>path</td><td>required</td><td>One of <code>change-levels</code>, <code>internal-variables</code>, <code>meta-variables</code>.</td></tr>
+            </tbody>
+          </table>
+          </div>
+<pre><code>curl https://api.digitalstemcell.bowtiekreative.com/v1/axes/meta-variables</code></pre>
+          <div class="table-wrap">
+          <table>
+            <thead><tr><th>Status</th><th>When</th></tr></thead>
+            <tbody>
+              <tr><td><code>404</code></td><td>The axis name is not one of the three.</td></tr>
+            </tbody>
+          </table>
+          </div>
+        </article>
+        <article class="op" id="get-grid">
+          <div class="op__head">
+            <span class="endpoint__method" data-m="GET">GET</span>
+            <h3 class="mono">/v1/grid</h3>
+          </div>
+          <p>The 50-cell grid pairing each change level with each internal variable, and the intent of that pairing.</p>
+          <div class="table-wrap">
+          <table>
+            <thead><tr><th>Name</th><th>In</th><th>Required</th><th>Description</th></tr></thead>
+            <tbody>
+              <tr><td><code>change</code></td><td>query</td><td>optional</td><td>Change level code, e.g. <code>C3</code>.</td></tr>
+              <tr><td><code>internal</code></td><td>query</td><td>optional</td><td>Internal variable code, e.g. <code>I07</code>.</td></tr>
+            </tbody>
+          </table>
+          </div>
+<pre><code>curl &#x27;https://api.digitalstemcell.bowtiekreative.com/v1/grid?change=C3&amp;internal=I07&#x27;</code></pre>
+        </article>
+        <article class="op" id="get-coordinate">
+          <div class="op__head">
+            <span class="endpoint__method" data-m="GET">GET</span>
+            <h3 class="mono">/v1/coordinates/{code}</h3>
+          </div>
+          <p>Resolve a full coordinate into its three axis definitions, the grid intent and the prompt stem.</p>
+          <div class="table-wrap">
+          <table>
+            <thead><tr><th>Name</th><th>In</th><th>Required</th><th>Description</th></tr></thead>
+            <tbody>
+              <tr><td><code>code</code></td><td>path</td><td>required</td><td>A coordinate id of the form <code>LAKA-C3-I07-M08</code>.</td></tr>
+            </tbody>
+          </table>
+          </div>
+<pre><code>curl https://api.digitalstemcell.bowtiekreative.com/v1/coordinates/LAKA-C3-I07-M08</code></pre>
+          <div class="table-wrap">
+          <table>
+            <thead><tr><th>Status</th><th>When</th></tr></thead>
+            <tbody>
+              <tr><td><code>422</code></td><td>The code is malformed. Change is C0–C4, internal is I01–I10, meta is M01–M14.</td></tr>
+            </tbody>
+          </table>
+          </div>
+        </article>
+        <article class="op" id="get-prompts">
+          <div class="op__head">
+            <span class="endpoint__method" data-m="GET">GET</span>
+            <h3 class="mono">/v1/prompts</h3>
+          </div>
+          <p>Search and page the 700 prompt stems. Filters combine with AND.</p>
+          <div class="table-wrap">
+          <table>
+            <thead><tr><th>Name</th><th>In</th><th>Required</th><th>Description</th></tr></thead>
+            <tbody>
+              <tr><td><code>q</code></td><td>query</td><td>optional</td><td>Free-text search across the prompt stem and the id.</td></tr>
+              <tr><td><code>change</code></td><td>query</td><td>optional</td><td>Change level code, e.g. <code>C2</code>.</td></tr>
+              <tr><td><code>internal</code></td><td>query</td><td>optional</td><td>Internal variable code, e.g. <code>I07</code>.</td></tr>
+              <tr><td><code>meta</code></td><td>query</td><td>optional</td><td>Meta-variable code, e.g. <code>M08</code>.</td></tr>
+              <tr><td><code>limit</code></td><td>query</td><td>optional</td><td>1–700. Defaults to 50.</td></tr>
+              <tr><td><code>offset</code></td><td>query</td><td>optional</td><td>Zero-based. Defaults to 0.</td></tr>
+            </tbody>
+          </table>
+          </div>
+<pre><code>curl &#x27;https://api.digitalstemcell.bowtiekreative.com/v1/prompts?change=C2&amp;internal=I07&amp;limit=5&#x27;</code></pre>
+        </article>
+        <article class="op" id="get-prompt">
+          <div class="op__head">
+            <span class="endpoint__method" data-m="GET">GET</span>
+            <h3 class="mono">/v1/prompts/{id}</h3>
+          </div>
+          <p>One prompt stem by coordinate id.</p>
+          <div class="table-wrap">
+          <table>
+            <thead><tr><th>Name</th><th>In</th><th>Required</th><th>Description</th></tr></thead>
+            <tbody>
+              <tr><td><code>id</code></td><td>path</td><td>required</td><td>Coordinate id, e.g. <code>LAKA-C0-I01-M01</code>.</td></tr>
+            </tbody>
+          </table>
+          </div>
+<pre><code>curl https://api.digitalstemcell.bowtiekreative.com/v1/prompts/LAKA-C0-I01-M01</code></pre>
+          <div class="table-wrap">
+          <table>
+            <thead><tr><th>Status</th><th>When</th></tr></thead>
+            <tbody>
+              <tr><td><code>404</code></td><td>No prompt stem carries that id.</td></tr>
+            </tbody>
+          </table>
+          </div>
+        </article>
+        <article class="op" id="get-modes">
+          <div class="op__head">
+            <span class="endpoint__method" data-m="GET">GET</span>
+            <h3 class="mono">/v1/modes</h3>
+          </div>
+          <p>The six operating modes plus the overview table as Markdown.</p>
+<pre><code>curl https://api.digitalstemcell.bowtiekreative.com/v1/modes</code></pre>
+        </article>
+        <article class="op" id="get-mode">
+          <div class="op__head">
+            <span class="endpoint__method" data-m="GET">GET</span>
+            <h3 class="mono">/v1/modes/{id}</h3>
+          </div>
+          <p>One mode playbook as Markdown.</p>
+          <div class="table-wrap">
+          <table>
+            <thead><tr><th>Name</th><th>In</th><th>Required</th><th>Description</th></tr></thead>
+            <tbody>
+              <tr><td><code>id</code></td><td>path</td><td>required</td><td><code>DECODE</code>, <code>GENERATE</code>, <code>PLAN</code>, <code>POSITION</code>, <code>PREDICT</code> or <code>SOLVE</code>.</td></tr>
+            </tbody>
+          </table>
+          </div>
+<pre><code>curl https://api.digitalstemcell.bowtiekreative.com/v1/modes/PREDICT</code></pre>
+          <div class="table-wrap">
+          <table>
+            <thead><tr><th>Status</th><th>When</th></tr></thead>
+            <tbody>
+              <tr><td><code>404</code></td><td>Unknown mode name.</td></tr>
+            </tbody>
+          </table>
+          </div>
+        </article>
+        <article class="op" id="get-operators">
+          <div class="op__head">
+            <span class="endpoint__method" data-m="GET">GET</span>
+            <h3 class="mono">/v1/operators</h3>
+          </div>
+          <p>The seventeen operators with definition, input, output, guardrail and example.</p>
+          <div class="table-wrap">
+          <table>
+            <thead><tr><th>Name</th><th>In</th><th>Required</th><th>Description</th></tr></thead>
+            <tbody>
+              <tr><td><code>category</code></td><td>query</td><td>optional</td><td>Navigation, Transformation, Relationship, Control, Composition, Comparison or Selection.</td></tr>
+            </tbody>
+          </table>
+          </div>
+<pre><code>curl &#x27;https://api.digitalstemcell.bowtiekreative.com/v1/operators?category=Transformation&#x27;</code></pre>
+        </article>
+        <article class="op" id="get-operator">
+          <div class="op__head">
+            <span class="endpoint__method" data-m="GET">GET</span>
+            <h3 class="mono">/v1/operators/{name}</h3>
+          </div>
+          <p>One operator. Case-insensitive.</p>
+          <div class="table-wrap">
+          <table>
+            <thead><tr><th>Name</th><th>In</th><th>Required</th><th>Description</th></tr></thead>
+            <tbody>
+              <tr><td><code>name</code></td><td>path</td><td>required</td><td>e.g. <code>INVERT</code>.</td></tr>
+            </tbody>
+          </table>
+          </div>
+<pre><code>curl https://api.digitalstemcell.bowtiekreative.com/v1/operators/INVERT</code></pre>
+          <div class="table-wrap">
+          <table>
+            <thead><tr><th>Status</th><th>When</th></tr></thead>
+            <tbody>
+              <tr><td><code>404</code></td><td>Unknown operator name.</td></tr>
+            </tbody>
+          </table>
+          </div>
+        </article>
+        <article class="op" id="get-core">
+          <div class="op__head">
+            <span class="endpoint__method" data-m="GET">GET</span>
+            <h3 class="mono">/v1/core</h3>
+          </div>
+          <p>The seven core framework extracts, listed by id and title.</p>
+<pre><code>curl https://api.digitalstemcell.bowtiekreative.com/v1/core</code></pre>
+        </article>
+        <article class="op" id="get-core-item">
+          <div class="op__head">
+            <span class="endpoint__method" data-m="GET">GET</span>
+            <h3 class="mono">/v1/core/{id}</h3>
+          </div>
+          <p>One core extract as Markdown.</p>
+          <div class="table-wrap">
+          <table>
+            <thead><tr><th>Name</th><th>In</th><th>Required</th><th>Description</th></tr></thead>
+            <tbody>
+              <tr><td><code>id</code></td><td>path</td><td>required</td><td>e.g. <code>formal-grammar</code>.</td></tr>
+            </tbody>
+          </table>
+          </div>
+<pre><code>curl https://api.digitalstemcell.bowtiekreative.com/v1/core/formal-grammar</code></pre>
+          <div class="table-wrap">
+          <table>
+            <thead><tr><th>Status</th><th>When</th></tr></thead>
+            <tbody>
+              <tr><td><code>404</code></td><td>Unknown extract id.</td></tr>
+            </tbody>
+          </table>
+          </div>
+        </article>
+        <article class="op" id="get-templates">
+          <div class="op__head">
+            <span class="endpoint__method" data-m="GET">GET</span>
+            <h3 class="mono">/v1/templates</h3>
+          </div>
+          <p>The five working templates, listed by id and title.</p>
+<pre><code>curl https://api.digitalstemcell.bowtiekreative.com/v1/templates</code></pre>
+        </article>
+        <article class="op" id="get-template">
+          <div class="op__head">
+            <span class="endpoint__method" data-m="GET">GET</span>
+            <h3 class="mono">/v1/templates/{id}</h3>
+          </div>
+          <p>One template as Markdown.</p>
+          <div class="table-wrap">
+          <table>
+            <thead><tr><th>Name</th><th>In</th><th>Required</th><th>Description</th></tr></thead>
+            <tbody>
+              <tr><td><code>id</code></td><td>path</td><td>required</td><td><code>run-laka</code>, <code>worksheet</code>, <code>concept-card</code>, <code>forecast-ledger</code> or <code>strategy-and-positioning</code>.</td></tr>
+            </tbody>
+          </table>
+          </div>
+<pre><code>curl https://api.digitalstemcell.bowtiekreative.com/v1/templates/run-laka</code></pre>
+          <div class="table-wrap">
+          <table>
+            <thead><tr><th>Status</th><th>When</th></tr></thead>
+            <tbody>
+              <tr><td><code>404</code></td><td>Unknown template id.</td></tr>
+            </tbody>
+          </table>
+          </div>
+        </article>
+        <article class="op" id="get-schema-run">
+          <div class="op__head">
+            <span class="endpoint__method" data-m="GET">GET</span>
+            <h3 class="mono">/v1/schema/run</h3>
+          </div>
+          <p>The JSON Schema (2020-12) a run document must satisfy.</p>
+<pre><code>curl https://api.digitalstemcell.bowtiekreative.com/v1/schema/run</code></pre>
+        </article>
+        <article class="op" id="get-schema-blank">
+          <div class="op__head">
+            <span class="endpoint__method" data-m="GET">GET</span>
+            <h3 class="mono">/v1/schema/blank-run</h3>
+          </div>
+          <p>An empty, schema-valid run document to fill in.</p>
+<pre><code>curl https://api.digitalstemcell.bowtiekreative.com/v1/schema/blank-run</code></pre>
+        </article>
+        <article class="op" id="get-scoring">
+          <div class="op__head">
+            <span class="endpoint__method" data-m="GET">GET</span>
+            <h3 class="mono">/v1/scoring</h3>
+          </div>
+          <p>The seven weighted criteria, the four hard gates, the rating anchors and the formula.</p>
+<pre><code>curl https://api.digitalstemcell.bowtiekreative.com/v1/scoring</code></pre>
+        </article>
+        <article class="op" id="post-score">
+          <div class="op__head">
+            <span class="endpoint__method" data-m="POST">POST</span>
+            <h3 class="mono">/v1/score</h3>
+          </div>
+          <p>Weight a set of 0–4 ratings into a 0–100 comparison index, with the per-criterion contribution shown.</p>
+          <div class="table-wrap">
+          <table>
+            <thead><tr><th>Name</th><th>In</th><th>Required</th><th>Description</th></tr></thead>
+            <tbody>
+              <tr><td><code>ratings</code></td><td>body</td><td>required</td><td>Object mapping every criterion id to an integer 0–4.</td></tr>
+              <tr><td><code>hard_gates_passed</code></td><td>body</td><td>optional</td><td>Boolean. Omit or send null when unknown — the result is then held for investigation.</td></tr>
+            </tbody>
+          </table>
+          </div>
+<pre><code>curl -X POST https://api.digitalstemcell.bowtiekreative.com/v1/score \
+  -H &#x27;content-type: application/json&#x27; \
+  -d &#x27;{
+    &quot;ratings&quot;: {
+      &quot;outcome_contribution&quot;: 3, &quot;feasibility&quot;: 2, &quot;evidence&quot;: 2,
+      &quot;adoption&quot;: 3, &quot;differentiation&quot;: 4, &quot;reversible_learning&quot;: 3,
+      &quot;robustness&quot;: 2
+    },
+    &quot;hard_gates_passed&quot;: true
+  }&#x27;</code></pre>
+          <div class="table-wrap">
+          <table>
+            <thead><tr><th>Status</th><th>When</th></tr></thead>
+            <tbody>
+              <tr><td><code>422</code></td><td>A criterion is missing, unknown, or a rating falls outside 0–4.</td></tr>
+            </tbody>
+          </table>
+          </div>
+        </article>
+        <article class="op" id="post-validate">
+          <div class="op__head">
+            <span class="endpoint__method" data-m="POST">POST</span>
+            <h3 class="mono">/v1/validate</h3>
+          </div>
+          <p>Validate a run document against the run schema. Returns every error with its JSON path.</p>
+          <div class="table-wrap">
+          <table>
+            <thead><tr><th>Name</th><th>In</th><th>Required</th><th>Description</th></tr></thead>
+            <tbody>
+              <tr><td><code>(body)</code></td><td>body</td><td>required</td><td>The run document to validate.</td></tr>
+            </tbody>
+          </table>
+          </div>
+<pre><code>curl -X POST https://api.digitalstemcell.bowtiekreative.com/v1/validate \
+  -H &#x27;content-type: application/json&#x27; \
+  -d &#x27;{&quot;run_id&quot;:&quot;demo&quot;,&quot;mode&quot;:&quot;GENERATE&quot;}&#x27;</code></pre>
+        </article>
+      </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="site-footer__inner">
+    <div class="site-footer__cols">
+      <div>
+        <h2>Documentation</h2>
+        <ul>
+          <li><a href="/">Overview</a></li>
+          <li><a href="/grammar.html">The Grammar</a></li>
+          <li><a href="/reference.html">API Reference</a></li>
+          <li><a href="/explorer.html">Explorer</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Machine readable</h2>
+        <ul>
+          <li><a href="https://api.digitalstemcell.bowtiekreative.com/v1/openapi.json">OpenAPI 3.1</a></li>
+          <li><a href="https://api.digitalstemcell.bowtiekreative.com/llms.txt">llms.txt</a></li>
+          <li><a href="https://api.digitalstemcell.bowtiekreative.com/v1/docs">Interactive docs</a></li>
+          <li><a href="https://api.digitalstemcell.bowtiekreative.com/v1">Service index</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Related</h2>
+        <ul>
+          <li><a href="https://designsystem.bowtiekreative.com">LAKA Design System</a></li>
+          <li><a href="https://bowtiekreative.com">Bow Tie Kreative</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="legal">
+      <span>LAKA Volumetric Grammar v1.0-draft · API v1.0.0</span>
+      <span>Powered by <a href="https://bowtiekreative.com">Bow Tie Kreative</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="https://designsystem.bowtiekreative.com/dist/laka.js" defer></script>
+<script src="/assets/site.js" defer></script>
+</body>
+</html>

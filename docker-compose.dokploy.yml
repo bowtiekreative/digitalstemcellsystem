@@ -1,0 +1,26 @@
+# DigitalStemCell — API + documentation site.
+#
+#   web -> digitalstemcell.bowtiekreative.com      (static docs, nginx)
+#   api -> api.digitalstemcell.bowtiekreative.com  (FastAPI, uvicorn)
+#
+# Dokploy attaches the Traefik routers from its own domain configuration,
+# so no labels are declared here.
+
+services:
+  api:
+    build:
+      context: .
+      dockerfile: api/Dockerfile
+    restart: unless-stopped
+    environment:
+      GRAMMAR_DIR: /app/grammar
+    expose:
+      - "8000"
+
+  web:
+    build:
+      context: .
+      dockerfile: site/Dockerfile
+    restart: unless-stopped
+    expose:
+      - "80"

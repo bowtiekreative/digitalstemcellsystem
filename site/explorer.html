@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Explorer — DigitalStemCell API</title>
+<meta name="description" content="Run live requests against the DigitalStemCell API from the browser.">
+<link rel="canonical" href="https://digitalstemcell.bowtiekreative.com/explorer.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="DigitalStemCell">
+<meta property="og:title" content="Explorer — DigitalStemCell API">
+<meta property="og:description" content="Run live requests against the DigitalStemCell API from the browser.">
+<meta property="og:url" content="https://digitalstemcell.bowtiekreative.com/explorer.html">
+<meta property="og:image" content="https://designsystem.bowtiekreative.com/brand/btk-seal.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Explorer — DigitalStemCell API">
+<meta name="twitter:description" content="Run live requests against the DigitalStemCell API from the browser.">
+<link rel="icon" sizes="32x32" href="https://designsystem.bowtiekreative.com/brand/favicon-32.png">
+<link rel="apple-touch-icon" href="https://designsystem.bowtiekreative.com/brand/apple-touch-icon-180.png">
+<link rel="preconnect" href="https://api.digitalstemcell.bowtiekreative.com">
+<link rel="stylesheet" href="https://designsystem.bowtiekreative.com/dist/laka.css">
+<link rel="stylesheet" href="/assets/site.css">
+
+</head>
+<body class="laka">
+<a class="skip" href="#main">Skip to content</a>
+
+<div class="site-header">
+  <header class="laka-header">
+    <div class="laka-header__left">
+      <a href="/" aria-label="DigitalStemCell home">
+        <img class="laka-header__seal" src="https://designsystem.bowtiekreative.com/brand/btk-seal-white.png" alt="Bow Tie Kreative" width="34" height="34">
+      </a>
+      <a class="laka-header__name" href="/">Digital <span>StemCell</span></a>
+    </div>
+    <div class="laka-header__right">
+      <button class="laka-btn laka-btn--outline" data-laka-menu="#megamenu" aria-expanded="false" aria-controls="megamenu">Menu</button>
+      <a class="laka-btn laka-btn--primary" href="/reference.html">API Reference</a>
+    </div>
+  </header>
+  <nav class="megamenu" id="megamenu" hidden aria-label="Main">
+    <div class="megamenu__inner">
+      <div>
+        <h2>Documentation</h2>
+        <ul>
+          <li><a href="/">Overview<small>What the grammar is and how to call it</small></a></li>
+          <li><a href="/grammar.html">The Grammar<small>Axes, grid, coordinates, operators</small></a></li>
+          <li><a href="/reference.html">API Reference<small>Every endpoint, parameter and response</small></a></li>
+          <li><a href="/explorer.html">Explorer<small>Run live calls against the API</small></a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Machine readable</h2>
+        <ul>
+          <li><a href="https://api.digitalstemcell.bowtiekreative.com/v1/openapi.json">OpenAPI 3.1<small>The full specification</small></a></li>
+          <li><a href="https://api.digitalstemcell.bowtiekreative.com/llms.txt">llms.txt<small>Agent guide</small></a></li>
+          <li><a href="https://api.digitalstemcell.bowtiekreative.com/v1/docs">Interactive docs<small>Try requests in the browser</small></a></li>
+          <li><a href="https://api.digitalstemcell.bowtiekreative.com/v1">Service index<small>Live endpoint listing</small></a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Related</h2>
+        <ul>
+          <li><a href="https://designsystem.bowtiekreative.com">LAKA Design System<small>The design library this site is built from</small></a></li>
+          <li><a href="https://bowtiekreative.com">Bow Tie Kreative<small>The studio</small></a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</div>
+
+<main id="main">
+  <section class="laka-section">
+    <div class="laka-section__inner">
+      <p class="laka-eyebrow">Explorer</p>
+      <h1>Call the API from here.</h1>
+      <p class="laka-lede">Requests go straight from your browser to <code>https://api.digitalstemcell.bowtiekreative.com</code>. Nothing is proxied and nothing is stored.</p>
+      <div class="explorer">
+        <form id="explorer-form" class="laka-card">
+          <div class="laka-field">
+            <label class="laka-label" for="explorer-preset">Preset</label>
+            <select class="laka-select" id="explorer-preset">
+            <option value="coordinate">Resolve a coordinate</option>
+            <option value="prompts">Search prompt stems</option>
+            <option value="axes">List the meta-variables</option>
+            <option value="grid">Grid rows for C4</option>
+            <option value="modes">The PREDICT playbook</option>
+            <option value="operators">Transformation operators</option>
+            <option value="templates">The RUN LAKA template</option>
+            <option value="scoring">The scoring rubric</option>
+            <option value="score">Score a concept (POST)</option>
+            <option value="validate">Validate a run (POST)</option>
+            </select>
+          </div>
+          <div class="laka-field">
+            <label class="laka-label" for="explorer-method">Method</label>
+            <select class="laka-select" id="explorer-method">
+              <option value="GET">GET</option>
+              <option value="POST">POST</option>
+            </select>
+          </div>
+          <div class="laka-field">
+            <label class="laka-label" for="explorer-path">Path</label>
+            <input class="laka-input" id="explorer-path" type="text" value="/v1/coordinates/LAKA-C3-I07-M08" spellcheck="false" autocapitalize="off" autocomplete="off">
+            <p class="laka-hint">Begins with a slash, e.g. <code>/v1/prompts?change=C2</code></p>
+          </div>
+          <div class="laka-field" id="explorer-body-field" hidden>
+            <label class="laka-label" for="explorer-body">Request body (JSON)</label>
+            <textarea class="laka-textarea" id="explorer-body" rows="10" spellcheck="false"></textarea>
+          </div>
+          <button class="laka-btn laka-btn--primary" type="submit">Send request</button>
+        </form>
+        <div class="stack">
+          <p class="mono laka-micro" id="explorer-url">GET</p>
+          <p id="explorer-status" class="laka-hint" role="status" aria-live="polite">Ready.</p>
+          <div class="result"><pre><code id="explorer-output"></code></pre></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="site-footer__inner">
+    <div class="site-footer__cols">
+      <div>
+        <h2>Documentation</h2>
+        <ul>
+          <li><a href="/">Overview</a></li>
+          <li><a href="/grammar.html">The Grammar</a></li>
+          <li><a href="/reference.html">API Reference</a></li>
+          <li><a href="/explorer.html">Explorer</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Machine readable</h2>
+        <ul>
+          <li><a href="https://api.digitalstemcell.bowtiekreative.com/v1/openapi.json">OpenAPI 3.1</a></li>
+          <li><a href="https://api.digitalstemcell.bowtiekreative.com/llms.txt">llms.txt</a></li>
+          <li><a href="https://api.digitalstemcell.bowtiekreative.com/v1/docs">Interactive docs</a></li>
+          <li><a href="https://api.digitalstemcell.bowtiekreative.com/v1">Service index</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Related</h2>
+        <ul>
+          <li><a href="https://designsystem.bowtiekreative.com">LAKA Design System</a></li>
+          <li><a href="https://bowtiekreative.com">Bow Tie Kreative</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="legal">
+      <span>LAKA Volumetric Grammar v1.0-draft · API v1.0.0</span>
+      <span>Powered by <a href="https://bowtiekreative.com">Bow Tie Kreative</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="https://designsystem.bowtiekreative.com/dist/laka.js" defer></script>
+<script src="/assets/site.js" defer></script>
+</body>
+</html>

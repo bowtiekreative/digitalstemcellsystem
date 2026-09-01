@@ -1,0 +1,309 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Grammar — DigitalStemCell API</title>
+<meta name="description" content="The three axes of the LAKA Volumetric Grammar: five change levels, ten internal variables, fourteen meta-variables, the 50-cell grid, seventeen operators and six modes.">
+<link rel="canonical" href="https://digitalstemcell.bowtiekreative.com/grammar.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="DigitalStemCell">
+<meta property="og:title" content="The Grammar — DigitalStemCell API">
+<meta property="og:description" content="The three axes of the LAKA Volumetric Grammar: five change levels, ten internal variables, fourteen meta-variables, the 50-cell grid, seventeen operators and six modes.">
+<meta property="og:url" content="https://digitalstemcell.bowtiekreative.com/grammar.html">
+<meta property="og:image" content="https://designsystem.bowtiekreative.com/brand/btk-seal.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="The Grammar — DigitalStemCell API">
+<meta name="twitter:description" content="The three axes of the LAKA Volumetric Grammar: five change levels, ten internal variables, fourteen meta-variables, the 50-cell grid, seventeen operators and six modes.">
+<link rel="icon" sizes="32x32" href="https://designsystem.bowtiekreative.com/brand/favicon-32.png">
+<link rel="apple-touch-icon" href="https://designsystem.bowtiekreative.com/brand/apple-touch-icon-180.png">
+<link rel="preconnect" href="https://api.digitalstemcell.bowtiekreative.com">
+<link rel="stylesheet" href="https://designsystem.bowtiekreative.com/dist/laka.css">
+<link rel="stylesheet" href="/assets/site.css">
+
+</head>
+<body class="laka">
+<a class="skip" href="#main">Skip to content</a>
+
+<div class="site-header">
+  <header class="laka-header">
+    <div class="laka-header__left">
+      <a href="/" aria-label="DigitalStemCell home">
+        <img class="laka-header__seal" src="https://designsystem.bowtiekreative.com/brand/btk-seal-white.png" alt="Bow Tie Kreative" width="34" height="34">
+      </a>
+      <a class="laka-header__name" href="/">Digital <span>StemCell</span></a>
+    </div>
+    <div class="laka-header__right">
+      <button class="laka-btn laka-btn--outline" data-laka-menu="#megamenu" aria-expanded="false" aria-controls="megamenu">Menu</button>
+      <a class="laka-btn laka-btn--primary" href="/reference.html">API Reference</a>
+    </div>
+  </header>
+  <nav class="megamenu" id="megamenu" hidden aria-label="Main">
+    <div class="megamenu__inner">
+      <div>
+        <h2>Documentation</h2>
+        <ul>
+          <li><a href="/">Overview<small>What the grammar is and how to call it</small></a></li>
+          <li><a href="/grammar.html">The Grammar<small>Axes, grid, coordinates, operators</small></a></li>
+          <li><a href="/reference.html">API Reference<small>Every endpoint, parameter and response</small></a></li>
+          <li><a href="/explorer.html">Explorer<small>Run live calls against the API</small></a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Machine readable</h2>
+        <ul>
+          <li><a href="https://api.digitalstemcell.bowtiekreative.com/v1/openapi.json">OpenAPI 3.1<small>The full specification</small></a></li>
+          <li><a href="https://api.digitalstemcell.bowtiekreative.com/llms.txt">llms.txt<small>Agent guide</small></a></li>
+          <li><a href="https://api.digitalstemcell.bowtiekreative.com/v1/docs">Interactive docs<small>Try requests in the browser</small></a></li>
+          <li><a href="https://api.digitalstemcell.bowtiekreative.com/v1">Service index<small>Live endpoint listing</small></a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Related</h2>
+        <ul>
+          <li><a href="https://designsystem.bowtiekreative.com">LAKA Design System<small>The design library this site is built from</small></a></li>
+          <li><a href="https://bowtiekreative.com">Bow Tie Kreative<small>The studio</small></a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</div>
+
+<main id="main">
+  <section class="laka-section">
+    <div class="laka-section__inner">
+      <p class="laka-eyebrow">The grammar</p>
+      <h1>How the volume is built.</h1>
+      <p class="laka-lede">Every endpoint in this API is a view onto one structure: a system described as a sentence, and a coordinate space of ways that sentence can change. This page is the vocabulary; the <a href="/reference.html">reference</a> is the calling convention.</p>
+    </div>
+  </section>
+  <section class="laka-section">
+    <div class="laka-section__inner">
+      <div class="stack stack--tight">
+        <p class="laka-eyebrow">Axis one</p>
+        <h2>Five change levels</h2>
+        <p class="laka-lede">How far the transformation is allowed to reach. C0 is not a change — it is the baseline you must establish before proposing any of the others.</p>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Code</th><th>Level</th><th>Definition</th><th>Typical operators</th></tr></thead>
+          <tbody>
+            <tr><td><code>C0</code></td><td><strong>Baseline</strong></td><td>Describe, preserve, measure, or standardize the current system.</td><td><em>Observe, map, maintain, measure.</em></td></tr>
+            <tr><td><code>C1</code></td><td><strong>Minor Change</strong></td><td>Tune parameters without changing the system’s identity.</td><td><em>Increase, decrease, simplify, speed up.</em></td></tr>
+            <tr><td><code>C2</code></td><td><strong>Major Change</strong></td><td>Introduce a functionally distinct mechanism while retaining the overall system.</td><td><em>Replace, automate, invert, split, merge.</em></td></tr>
+            <tr><td><code>C3</code></td><td><strong>Structural Change</strong></td><td>Change relationships, flows, roles, dependencies, or control architecture.</td><td><em>Rewire, redistribute, decentralize, modularize.</em></td></tr>
+            <tr><td><code>C4</code></td><td><strong>Paradigm Change</strong></td><td>Change assumptions, purpose, category, object, or the definition of value.</td><td><em>Redefine, eliminate, dematerialize, universalize.</em></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+  <section class="laka-section">
+    <div class="laka-section__inner">
+      <div class="stack stack--tight">
+        <p class="laka-eyebrow">Axis two</p>
+        <h2>Ten internal variables</h2>
+        <p class="laka-lede">The clauses of the system sentence. Together they say who does what to which object, under what conditions, with what, producing what, and how it breaks.</p>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Code</th><th>Variable</th><th>Question it answers</th><th>Grammar role</th></tr></thead>
+          <tbody>
+            <tr><td><code>I01</code></td><td><strong>Object</strong></td><td>What is being acted upon?</td><td>The subject: what is being acted upon.</td></tr>
+            <tr><td><code>I02</code></td><td><strong>Conditions</strong></td><td>Under what circumstances does the system operate?</td><td>Contextual clause: when, where, and under what circumstances.</td></tr>
+            <tr><td><code>I03</code></td><td><strong>Actions</strong></td><td>What does the system do?</td><td>Verb: what the system does.</td></tr>
+            <tr><td><code>I04</code></td><td><strong>Tools</strong></td><td>What mechanisms carry out the actions?</td><td>Instrument: what directly carries out the action.</td></tr>
+            <tr><td><code>I05</code></td><td><strong>Resources</strong></td><td>What information, assets, energy, people, or capital are required?</td><td>Inputs: what enables or supplies the action.</td></tr>
+            <tr><td><code>I06</code></td><td><strong>Outcomes</strong></td><td>What does the system produce?</td><td>Result clause: what observable state is produced.</td></tr>
+            <tr><td><code>I07</code></td><td><strong>Feedback</strong></td><td>How does the outcome change the system?</td><td>Recursive clause: how results alter the next cycle.</td></tr>
+            <tr><td><code>I08</code></td><td><strong>Constraints</strong></td><td>What limits performance or adoption?</td><td>Boundary clause: what limits valid operation.</td></tr>
+            <tr><td><code>I09</code></td><td><strong>Value</strong></td><td>For whom is value created, and what kind?</td><td>Meaning clause: who benefits and why it matters.</td></tr>
+            <tr><td><code>I10</code></td><td><strong>Failure mode</strong></td><td>How does the system fail at this level?</td><td>Break clause: how the sentence becomes invalid.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+  <section class="laka-section">
+    <div class="laka-section__inner">
+      <div class="stack stack--tight">
+        <p class="laka-eyebrow">Axis three</p>
+        <h2>Fourteen meta-variables</h2>
+        <p class="laka-lede">How any one clause can vary. The illustrative states are vocabularies for describing a direction of travel — they are not calibrated scales.</p>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Code</th><th>Meta-variable</th><th>Question it answers</th></tr></thead>
+          <tbody>
+            <tr><td><code>M01</code></td><td><strong>Magnitude</strong></td><td>How much change?</td></tr>
+            <tr><td><code>M02</code></td><td><strong>Rate</strong></td><td>How quickly?</td></tr>
+            <tr><td><code>M03</code></td><td><strong>Direction</strong></td><td>Moving toward what?</td></tr>
+            <tr><td><code>M04</code></td><td><strong>Scope</strong></td><td>How broadly?</td></tr>
+            <tr><td><code>M05</code></td><td><strong>Depth</strong></td><td>How fundamentally?</td></tr>
+            <tr><td><code>M06</code></td><td><strong>Duration</strong></td><td>For how long?</td></tr>
+            <tr><td><code>M07</code></td><td><strong>Frequency</strong></td><td>How often?</td></tr>
+            <tr><td><code>M08</code></td><td><strong>Acceleration</strong></td><td>Is the rate increasing or decreasing?</td></tr>
+            <tr><td><code>M09</code></td><td><strong>Variability</strong></td><td>How consistent or unpredictable?</td></tr>
+            <tr><td><code>M10</code></td><td><strong>Detectability</strong></td><td>How visible or measurable?</td></tr>
+            <tr><td><code>M11</code></td><td><strong>Reversibility</strong></td><td>Can it be undone?</td></tr>
+            <tr><td><code>M12</code></td><td><strong>Propagation</strong></td><td>How does it spread?</td></tr>
+            <tr><td><code>M13</code></td><td><strong>Amplification</strong></td><td>What makes it stronger?</td></tr>
+            <tr><td><code>M14</code></td><td><strong>Accumulation</strong></td><td>How does it build over time?</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+  <section class="laka-section">
+    <div class="laka-section__inner">
+      <div class="stack stack--tight">
+        <p class="laka-eyebrow">Reading a coordinate</p>
+        <h2>LAKA-C3-I07-M08</h2>
+      </div>
+      <div class="laka-panel">
+        <p><code>C3</code> Structural Change &times; <code>I07</code> Feedback &times; <code>M08</code> Acceleration — <em>“how might the rate of change of the system's feedback loops be restructured?”</em></p>
+      </div>
+      <p>The 50-cell grid pairs each change level with each internal variable and names the intent of that pairing. The meta-variable then selects which property of the clause is in play. Fetch any single coordinate from <code>GET /v1/coordinates/{code}</code>.</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Change level</th><th>Internal variable</th><th>Intent</th></tr></thead>
+          <tbody>
+            <tr><td><code>C0</code> Baseline</td><td><code>I01</code> Object</td><td>Same object and category</td></tr>
+            <tr><td><code>C0</code> Baseline</td><td><code>I02</code> Conditions</td><td>Accept current environment</td></tr>
+            <tr><td><code>C0</code> Baseline</td><td><code>I03</code> Actions</td><td>Repeat current action</td></tr>
+            <tr><td><code>C0</code> Baseline</td><td><code>I04</code> Tools</td><td>Use current tool</td></tr>
+            <tr><td><code>C0</code> Baseline</td><td><code>I05</code> Resources</td><td>Use existing inputs</td></tr>
+            <tr><td><code>C0</code> Baseline</td><td><code>I06</code> Outcomes</td><td>Preserve current result and metric</td></tr>
+            <tr><td><code>C0</code> Baseline</td><td><code>I07</code> Feedback</td><td>Manual, delayed, or periodic</td></tr>
+            <tr><td><code>C0</code> Baseline</td><td><code>I08</code> Constraints</td><td>Treat boundary as fixed</td></tr>
+            <tr><td><code>C0</code> Baseline</td><td><code>I09</code> Value</td><td>Same beneficiary and value type</td></tr>
+            <tr><td><code>C0</code> Baseline</td><td><code>I10</code> Failure mode</td><td>Observe known failure</td></tr>
+            <tr><td><code>C4</code> Paradigm Change</td><td><code>I01</code> Object</td><td>Eliminate the old object or create a new object category</td></tr>
+            <tr><td><code>C4</code> Paradigm Change</td><td><code>I02</code> Conditions</td><td>Remove dependence on the condition or redefine the context</td></tr>
+            <tr><td><code>C4</code> Paradigm Change</td><td><code>I03</code> Actions</td><td>Eliminate the action or achieve the outcome through different logic</td></tr>
+            <tr><td><code>C4</code> Paradigm Change</td><td><code>I04</code> Tools</td><td>Make the tool ambient, invisible, autonomous, or unnecessary</td></tr>
+            <tr><td><code>C4</code> Paradigm Change</td><td><code>I05</code> Resources</td><td>Make the system generate its own resource or convert scarcity into abundance</td></tr>
+            <tr><td><code>C4</code> Paradigm Change</td><td><code>I06</code> Outcomes</td><td>Redefine the purpose, desired result, or meaning of success</td></tr>
+            <tr><td><code>C4</code> Paradigm Change</td><td><code>I07</code> Feedback</td><td>Anticipatory or self-governing feedback that can redefine targets</td></tr>
+            <tr><td><code>C4</code> Paradigm Change</td><td><code>I08</code> Constraints</td><td>Reframe the system so the old constraint is no longer relevant</td></tr>
+            <tr><td><code>C4</code> Paradigm Change</td><td><code>I09</code> Value</td><td>Establish a new unit, source, exchange, or philosophy of value</td></tr>
+            <tr><td><code>C4</code> Paradigm Change</td><td><code>I10</code> Failure mode</td><td>Transform failure into information, resources, adaptation, or another valid state</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="laka-micro">Showing the C0 and C4 rows. All 50 cells: GET /v1/grid</p>
+    </div>
+  </section>
+  <section class="laka-section">
+    <div class="laka-section__inner">
+      <div class="stack stack--tight">
+        <p class="laka-eyebrow">Operators</p>
+        <h2>17 moves through the volume</h2>
+        <p class="laka-lede">Operators are how you get from one coordinate to another. Each one carries a guardrail — the condition under which applying it would be invalid.</p>
+      </div>
+      <div class="laka-grid">
+        <article class="laka-card">
+          <h3 class="laka-card-title">Navigation</h3>
+          <p><code>SHIFT</code>, <code>ROTATE</code>, <code>RECURSE</code></p>
+          <p>Move something to another change level.</p>
+        </article>
+        <article class="laka-card">
+          <h3 class="laka-card-title">Transformation</h3>
+          <p><code>INVERT</code>, <code>TRANSFER</code>, <code>SUBSTITUTE</code>, <code>SPLIT</code>, <code>MERGE</code></p>
+          <p>Reverse an assumption, direction, object, action, or outcome.</p>
+        </article>
+        <article class="laka-card">
+          <h3 class="laka-card-title">Relationship</h3>
+          <p><code>COUPLE</code>, <code>DECOUPLE</code></p>
+          <p>Make variables affect each other.</p>
+        </article>
+        <article class="laka-card">
+          <h3 class="laka-card-title">Control</h3>
+          <p><code>STABILIZE</code>, <code>DESTABILIZE</code></p>
+          <p>Preserve or return to a desired state.</p>
+        </article>
+        <article class="laka-card">
+          <h3 class="laka-card-title">Composition</h3>
+          <p><code>SEQUENCE</code>, <code>PARALLELIZE</code>, <code>COMPOSE</code></p>
+          <p>Arrange alternatives into an implementation path.</p>
+        </article>
+        <article class="laka-card">
+          <h3 class="laka-card-title">Comparison</h3>
+          <p><code>OVERLAY</code></p>
+          <p>Compare systems, competitors, users, scenarios, or periods.</p>
+        </article>
+        <article class="laka-card">
+          <h3 class="laka-card-title">Selection</h3>
+          <p><code>PRUNE</code></p>
+          <p>Remove alternatives that violate observable Outcomes.</p>
+        </article>
+      </div>
+      <p class="laka-micro">Full definitions, inputs, outputs and guardrails: GET /v1/operators</p>
+    </div>
+  </section>
+  <section class="laka-section">
+    <div class="laka-section__inner">
+      <div class="stack stack--tight">
+        <p class="laka-eyebrow">Modes</p>
+        <h2>Six ways to read the same volume</h2>
+        <p class="laka-lede">The coordinate space does not change; the question you bring to it does.</p>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Mode</th><th>How it reads the volume</th></tr></thead>
+          <tbody>
+            <tr><td><code>GENERATE</code></td><td>Produce candidate transformations from unfilled coordinates.</td></tr>
+            <tr><td><code>SOLVE</code></td><td>Move a specific failing clause to an acceptable state.</td></tr>
+            <tr><td><code>DECODE</code></td><td>Explain an existing system by locating it in the volume.</td></tr>
+            <tr><td><code>PREDICT</code></td><td>Project how meta-variables carry a clause forward.</td></tr>
+            <tr><td><code>PLAN</code></td><td>Sequence transformations into a feasible order.</td></tr>
+            <tr><td><code>POSITION</code></td><td>Compare your system sentence against alternatives.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="laka-micro">Each mode ships a full playbook: GET /v1/modes/{id}</p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="site-footer__inner">
+    <div class="site-footer__cols">
+      <div>
+        <h2>Documentation</h2>
+        <ul>
+          <li><a href="/">Overview</a></li>
+          <li><a href="/grammar.html">The Grammar</a></li>
+          <li><a href="/reference.html">API Reference</a></li>
+          <li><a href="/explorer.html">Explorer</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Machine readable</h2>
+        <ul>
+          <li><a href="https://api.digitalstemcell.bowtiekreative.com/v1/openapi.json">OpenAPI 3.1</a></li>
+          <li><a href="https://api.digitalstemcell.bowtiekreative.com/llms.txt">llms.txt</a></li>
+          <li><a href="https://api.digitalstemcell.bowtiekreative.com/v1/docs">Interactive docs</a></li>
+          <li><a href="https://api.digitalstemcell.bowtiekreative.com/v1">Service index</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Related</h2>
+        <ul>
+          <li><a href="https://designsystem.bowtiekreative.com">LAKA Design System</a></li>
+          <li><a href="https://bowtiekreative.com">Bow Tie Kreative</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="legal">
+      <span>LAKA Volumetric Grammar v1.0-draft · API v1.0.0</span>
+      <span>Powered by <a href="https://bowtiekreative.com">Bow Tie Kreative</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="https://designsystem.bowtiekreative.com/dist/laka.js" defer></script>
+<script src="/assets/site.js" defer></script>
+</body>
+</html>
