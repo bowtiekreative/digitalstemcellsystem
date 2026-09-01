@@ -1,0 +1,270 @@
+{
+  "version": "1.0-draft",
+  "origin": "User-defined LAKA vocabulary; explanatory fields and illustrative states developed in the conversation.",
+  "change_levels": [
+    {
+      "code": "C0",
+      "label": "Baseline",
+      "definition": "Describe, preserve, measure, or standardize the current system.",
+      "operator_examples": "Observe, map, maintain, measure."
+    },
+    {
+      "code": "C1",
+      "label": "Minor Change",
+      "definition": "Tune parameters without changing the system’s identity.",
+      "operator_examples": "Increase, decrease, simplify, speed up."
+    },
+    {
+      "code": "C2",
+      "label": "Major Change",
+      "definition": "Introduce a functionally distinct mechanism while retaining the overall system.",
+      "operator_examples": "Replace, automate, invert, split, merge."
+    },
+    {
+      "code": "C3",
+      "label": "Structural Change",
+      "definition": "Change relationships, flows, roles, dependencies, or control architecture.",
+      "operator_examples": "Rewire, redistribute, decentralize, modularize."
+    },
+    {
+      "code": "C4",
+      "label": "Paradigm Change",
+      "definition": "Change assumptions, purpose, category, object, or the definition of value.",
+      "operator_examples": "Redefine, eliminate, dematerialize, universalize."
+    }
+  ],
+  "internal_variables": [
+    {
+      "code": "I01",
+      "label": "Object",
+      "question": "What is being acted upon?",
+      "grammar_role": "The subject: what is being acted upon."
+    },
+    {
+      "code": "I02",
+      "label": "Conditions",
+      "question": "Under what circumstances does the system operate?",
+      "grammar_role": "Contextual clause: when, where, and under what circumstances."
+    },
+    {
+      "code": "I03",
+      "label": "Actions",
+      "question": "What does the system do?",
+      "grammar_role": "Verb: what the system does."
+    },
+    {
+      "code": "I04",
+      "label": "Tools",
+      "question": "What mechanisms carry out the actions?",
+      "grammar_role": "Instrument: what directly carries out the action."
+    },
+    {
+      "code": "I05",
+      "label": "Resources",
+      "question": "What information, assets, energy, people, or capital are required?",
+      "grammar_role": "Inputs: what enables or supplies the action."
+    },
+    {
+      "code": "I06",
+      "label": "Outcomes",
+      "question": "What does the system produce?",
+      "grammar_role": "Result clause: what observable state is produced."
+    },
+    {
+      "code": "I07",
+      "label": "Feedback",
+      "question": "How does the outcome change the system?",
+      "grammar_role": "Recursive clause: how results alter the next cycle."
+    },
+    {
+      "code": "I08",
+      "label": "Constraints",
+      "question": "What limits performance or adoption?",
+      "grammar_role": "Boundary clause: what limits valid operation."
+    },
+    {
+      "code": "I09",
+      "label": "Value",
+      "question": "For whom is value created, and what kind?",
+      "grammar_role": "Meaning clause: who benefits and why it matters."
+    },
+    {
+      "code": "I10",
+      "label": "Failure mode",
+      "question": "How does the system fail at this level?",
+      "grammar_role": "Break clause: how the sentence becomes invalid."
+    }
+  ],
+  "meta_variables": [
+    {
+      "code": "M01",
+      "label": "Magnitude",
+      "question": "How much change?",
+      "illustrative_states": [
+        "unchanged",
+        "slight",
+        "substantial",
+        "system-wide",
+        "category-defining"
+      ]
+    },
+    {
+      "code": "M02",
+      "label": "Rate",
+      "question": "How quickly?",
+      "illustrative_states": [
+        "static",
+        "gradual",
+        "rapid",
+        "discontinuous",
+        "self-accelerating"
+      ]
+    },
+    {
+      "code": "M03",
+      "label": "Direction",
+      "question": "Moving toward what?",
+      "illustrative_states": [
+        "no directional shift",
+        "local tendency",
+        "explicit target",
+        "system reorientation",
+        "new definition of progress"
+      ]
+    },
+    {
+      "code": "M04",
+      "label": "Scope",
+      "question": "How broadly?",
+      "illustrative_states": [
+        "single point",
+        "local subset",
+        "multiple units",
+        "whole system",
+        "ecosystem or culture"
+      ]
+    },
+    {
+      "code": "M05",
+      "label": "Depth",
+      "question": "How fundamentally?",
+      "illustrative_states": [
+        "surface",
+        "parameter",
+        "function",
+        "architecture",
+        "assumptions or ontology"
+      ]
+    },
+    {
+      "code": "M06",
+      "label": "Duration",
+      "question": "For how long?",
+      "illustrative_states": [
+        "momentary",
+        "temporary",
+        "sustained",
+        "embedded",
+        "enduring default"
+      ]
+    },
+    {
+      "code": "M07",
+      "label": "Frequency",
+      "question": "How often?",
+      "illustrative_states": [
+        "one-off",
+        "occasional",
+        "repeated",
+        "continuous",
+        "no discrete event or always-on"
+      ]
+    },
+    {
+      "code": "M08",
+      "label": "Acceleration",
+      "question": "Is the rate increasing or decreasing?",
+      "illustrative_states": [
+        "flat",
+        "slightly increasing",
+        "compounding",
+        "nonlinear",
+        "self-propelling"
+      ]
+    },
+    {
+      "code": "M09",
+      "label": "Variability",
+      "question": "How consistent or unpredictable?",
+      "illustrative_states": [
+        "fixed",
+        "bounded",
+        "broad",
+        "adaptive",
+        "emergent"
+      ]
+    },
+    {
+      "code": "M10",
+      "label": "Detectability",
+      "question": "How visible or measurable?",
+      "illustrative_states": [
+        "invisible",
+        "weak signal",
+        "measurable",
+        "real-time transparent",
+        "anticipatory"
+      ]
+    },
+    {
+      "code": "M11",
+      "label": "Reversibility",
+      "question": "Can it be undone?",
+      "illustrative_states": [
+        "effortless",
+        "easy",
+        "costly",
+        "path-dependent",
+        "effectively irreversible"
+      ]
+    },
+    {
+      "code": "M12",
+      "label": "Propagation",
+      "question": "How does it spread?",
+      "illustrative_states": [
+        "contained",
+        "adjacent",
+        "networked",
+        "cascading",
+        "ecosystem-spanning"
+      ]
+    },
+    {
+      "code": "M13",
+      "label": "Amplification",
+      "question": "What makes it stronger?",
+      "illustrative_states": [
+        "none",
+        "local leverage",
+        "multiplier",
+        "platform or network effect",
+        "self-reinforcing"
+      ]
+    },
+    {
+      "code": "M14",
+      "label": "Accumulation",
+      "question": "How does it build over time?",
+      "illustrative_states": [
+        "none",
+        "additive",
+        "compounding",
+        "stock-and-flow shift",
+        "flywheel or lock-in"
+      ]
+    }
+  ],
+  "illustrative_state_warning": "State examples are not validated ordinal scales and do not map onto change-level columns. Baseline means the observed current system, not zero change.",
+  "base_coordinate_count": 700
+}

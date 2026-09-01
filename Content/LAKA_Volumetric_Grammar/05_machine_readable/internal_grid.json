@@ -1,0 +1,352 @@
+[
+  {
+    "change_level": "Baseline",
+    "change_code": "C0",
+    "internal_variable": "Object",
+    "internal_code": "I01",
+    "intent": "Same object and category"
+  },
+  {
+    "change_level": "Baseline",
+    "change_code": "C0",
+    "internal_variable": "Conditions",
+    "internal_code": "I02",
+    "intent": "Accept current environment"
+  },
+  {
+    "change_level": "Baseline",
+    "change_code": "C0",
+    "internal_variable": "Actions",
+    "internal_code": "I03",
+    "intent": "Repeat current action"
+  },
+  {
+    "change_level": "Baseline",
+    "change_code": "C0",
+    "internal_variable": "Tools",
+    "internal_code": "I04",
+    "intent": "Use current tool"
+  },
+  {
+    "change_level": "Baseline",
+    "change_code": "C0",
+    "internal_variable": "Resources",
+    "internal_code": "I05",
+    "intent": "Use existing inputs"
+  },
+  {
+    "change_level": "Baseline",
+    "change_code": "C0",
+    "internal_variable": "Outcomes",
+    "internal_code": "I06",
+    "intent": "Preserve current result and metric"
+  },
+  {
+    "change_level": "Baseline",
+    "change_code": "C0",
+    "internal_variable": "Feedback",
+    "internal_code": "I07",
+    "intent": "Manual, delayed, or periodic"
+  },
+  {
+    "change_level": "Baseline",
+    "change_code": "C0",
+    "internal_variable": "Constraints",
+    "internal_code": "I08",
+    "intent": "Treat boundary as fixed"
+  },
+  {
+    "change_level": "Baseline",
+    "change_code": "C0",
+    "internal_variable": "Value",
+    "internal_code": "I09",
+    "intent": "Same beneficiary and value type"
+  },
+  {
+    "change_level": "Baseline",
+    "change_code": "C0",
+    "internal_variable": "Failure mode",
+    "internal_code": "I10",
+    "intent": "Observe known failure"
+  },
+  {
+    "change_level": "Minor Change",
+    "change_code": "C1",
+    "internal_variable": "Object",
+    "internal_code": "I01",
+    "intent": "Tune an attribute"
+  },
+  {
+    "change_level": "Minor Change",
+    "change_code": "C1",
+    "internal_variable": "Conditions",
+    "internal_code": "I02",
+    "intent": "Adjust tolerances"
+  },
+  {
+    "change_level": "Minor Change",
+    "change_code": "C1",
+    "internal_variable": "Actions",
+    "internal_code": "I03",
+    "intent": "Optimize speed, sequence, or effort"
+  },
+  {
+    "change_level": "Minor Change",
+    "change_code": "C1",
+    "internal_variable": "Tools",
+    "internal_code": "I04",
+    "intent": "Improve precision, usability, or performance"
+  },
+  {
+    "change_level": "Minor Change",
+    "change_code": "C1",
+    "internal_variable": "Resources",
+    "internal_code": "I05",
+    "intent": "Reduce waste or improve efficiency"
+  },
+  {
+    "change_level": "Minor Change",
+    "change_code": "C1",
+    "internal_variable": "Outcomes",
+    "internal_code": "I06",
+    "intent": "Improve amount or quality"
+  },
+  {
+    "change_level": "Minor Change",
+    "change_code": "C1",
+    "internal_variable": "Feedback",
+    "internal_code": "I07",
+    "intent": "Faster and more granular"
+  },
+  {
+    "change_level": "Minor Change",
+    "change_code": "C1",
+    "internal_variable": "Constraints",
+    "internal_code": "I08",
+    "intent": "Relax or optimize around it"
+  },
+  {
+    "change_level": "Minor Change",
+    "change_code": "C1",
+    "internal_variable": "Value",
+    "internal_code": "I09",
+    "intent": "More value for the same beneficiary"
+  },
+  {
+    "change_level": "Minor Change",
+    "change_code": "C1",
+    "internal_variable": "Failure mode",
+    "internal_code": "I10",
+    "intent": "Reduce probability or severity"
+  },
+  {
+    "change_level": "Major Change",
+    "change_code": "C2",
+    "internal_variable": "Object",
+    "internal_code": "I01",
+    "intent": "Replace, split, combine, or relocate the object"
+  },
+  {
+    "change_level": "Major Change",
+    "change_code": "C2",
+    "internal_variable": "Conditions",
+    "internal_code": "I02",
+    "intent": "Operate under substantially different conditions"
+  },
+  {
+    "change_level": "Major Change",
+    "change_code": "C2",
+    "internal_variable": "Actions",
+    "internal_code": "I03",
+    "intent": "Substitute, reverse, transfer, or automate the action"
+  },
+  {
+    "change_level": "Major Change",
+    "change_code": "C2",
+    "internal_variable": "Tools",
+    "internal_code": "I04",
+    "intent": "Introduce a new tool class"
+  },
+  {
+    "change_level": "Major Change",
+    "change_code": "C2",
+    "internal_variable": "Resources",
+    "internal_code": "I05",
+    "intent": "Substitute a resource or add a new source"
+  },
+  {
+    "change_level": "Major Change",
+    "change_code": "C2",
+    "internal_variable": "Outcomes",
+    "internal_code": "I06",
+    "intent": "Add new outcomes or remove significant undesired outcomes"
+  },
+  {
+    "change_level": "Major Change",
+    "change_code": "C2",
+    "internal_variable": "Feedback",
+    "internal_code": "I07",
+    "intent": "Automated closed loop"
+  },
+  {
+    "change_level": "Major Change",
+    "change_code": "C2",
+    "internal_variable": "Constraints",
+    "internal_code": "I08",
+    "intent": "Remove, substitute, or transfer the limitation"
+  },
+  {
+    "change_level": "Major Change",
+    "change_code": "C2",
+    "internal_variable": "Value",
+    "internal_code": "I09",
+    "intent": "New beneficiary, value type, offer, or revenue logic"
+  },
+  {
+    "change_level": "Major Change",
+    "change_code": "C2",
+    "internal_variable": "Failure mode",
+    "internal_code": "I10",
+    "intent": "Prevent, detect, isolate, or recover from failure"
+  },
+  {
+    "change_level": "Structural Change",
+    "change_code": "C3",
+    "internal_variable": "Object",
+    "internal_code": "I01",
+    "intent": "Reconfigure relationships, ownership, or boundaries around the object"
+  },
+  {
+    "change_level": "Structural Change",
+    "change_code": "C3",
+    "internal_variable": "Conditions",
+    "internal_code": "I02",
+    "intent": "Sense, adapt to, or actively engineer conditions"
+  },
+  {
+    "change_level": "Structural Change",
+    "change_code": "C3",
+    "internal_variable": "Actions",
+    "internal_code": "I03",
+    "intent": "Redesign the network of actions and actors"
+  },
+  {
+    "change_level": "Structural Change",
+    "change_code": "C3",
+    "internal_variable": "Tools",
+    "internal_code": "I04",
+    "intent": "Create a platform, toolchain, shared system, or infrastructure"
+  },
+  {
+    "change_level": "Structural Change",
+    "change_code": "C3",
+    "internal_variable": "Resources",
+    "internal_code": "I05",
+    "intent": "Create circular, shared, on-demand, or autonomous resource flows"
+  },
+  {
+    "change_level": "Structural Change",
+    "change_code": "C3",
+    "internal_variable": "Outcomes",
+    "internal_code": "I06",
+    "intent": "Balance interconnected Outcomes across the system"
+  },
+  {
+    "change_level": "Structural Change",
+    "change_code": "C3",
+    "internal_variable": "Feedback",
+    "internal_code": "I07",
+    "intent": "Multiple adaptive loops across the system"
+  },
+  {
+    "change_level": "Structural Change",
+    "change_code": "C3",
+    "internal_variable": "Constraints",
+    "internal_code": "I08",
+    "intent": "Redistribute the limitation or convert it into a design rule"
+  },
+  {
+    "change_level": "Structural Change",
+    "change_code": "C3",
+    "internal_variable": "Value",
+    "internal_code": "I09",
+    "intent": "Align value across several Actors or an ecosystem"
+  },
+  {
+    "change_level": "Structural Change",
+    "change_code": "C3",
+    "internal_variable": "Failure mode",
+    "internal_code": "I10",
+    "intent": "Create graceful degradation, redundancy, resilience, or self-repair"
+  },
+  {
+    "change_level": "Paradigm Change",
+    "change_code": "C4",
+    "internal_variable": "Object",
+    "internal_code": "I01",
+    "intent": "Eliminate the old object or create a new object category"
+  },
+  {
+    "change_level": "Paradigm Change",
+    "change_code": "C4",
+    "internal_variable": "Conditions",
+    "internal_code": "I02",
+    "intent": "Remove dependence on the condition or redefine the context"
+  },
+  {
+    "change_level": "Paradigm Change",
+    "change_code": "C4",
+    "internal_variable": "Actions",
+    "internal_code": "I03",
+    "intent": "Eliminate the action or achieve the outcome through different logic"
+  },
+  {
+    "change_level": "Paradigm Change",
+    "change_code": "C4",
+    "internal_variable": "Tools",
+    "internal_code": "I04",
+    "intent": "Make the tool ambient, invisible, autonomous, or unnecessary"
+  },
+  {
+    "change_level": "Paradigm Change",
+    "change_code": "C4",
+    "internal_variable": "Resources",
+    "internal_code": "I05",
+    "intent": "Make the system generate its own resource or convert scarcity into abundance"
+  },
+  {
+    "change_level": "Paradigm Change",
+    "change_code": "C4",
+    "internal_variable": "Outcomes",
+    "internal_code": "I06",
+    "intent": "Redefine the purpose, desired result, or meaning of success"
+  },
+  {
+    "change_level": "Paradigm Change",
+    "change_code": "C4",
+    "internal_variable": "Feedback",
+    "internal_code": "I07",
+    "intent": "Anticipatory or self-governing feedback that can redefine targets"
+  },
+  {
+    "change_level": "Paradigm Change",
+    "change_code": "C4",
+    "internal_variable": "Constraints",
+    "internal_code": "I08",
+    "intent": "Reframe the system so the old constraint is no longer relevant"
+  },
+  {
+    "change_level": "Paradigm Change",
+    "change_code": "C4",
+    "internal_variable": "Value",
+    "internal_code": "I09",
+    "intent": "Establish a new unit, source, exchange, or philosophy of value"
+  },
+  {
+    "change_level": "Paradigm Change",
+    "change_code": "C4",
+    "internal_variable": "Failure mode",
+    "internal_code": "I10",
+    "intent": "Transform failure into information, resources, adaptation, or another valid state"
+  }
+]

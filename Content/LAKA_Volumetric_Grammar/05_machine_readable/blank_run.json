@@ -1,0 +1,31 @@
+{
+  "version": "1.0-draft",
+  "run_id": "replace-with-run-id",
+  "mode": "GENERATE",
+  "context": {
+    "actor": null,
+    "scenario": null,
+    "purpose": null,
+    "current_desire": null,
+    "desired_outcome": null,
+    "time_horizon": null,
+    "as_of": null
+  },
+  "baseline": {
+    "Object": null,
+    "Conditions": null,
+    "Actions": null,
+    "Tools": null,
+    "Resources": null,
+    "Outcomes": null,
+    "Feedback": null,
+    "Constraints": null,
+    "Value": null,
+    "Failure mode": null
+  },
+  "evidence": [],
+  "concepts": [],
+  "notes": [
+    "Unfilled template. Null means unknown, not zero."
+  ]
+}

@@ -1,0 +1,263 @@
+{
+  "version": "1.0-draft",
+  "edition": "complete",
+  "file_count_excluding_manifest": 51,
+  "self_note": "Manifest is excluded from its own checksum inventory.",
+  "files": [
+    {
+      "path": "01_core/01_volume_and_context.md",
+      "bytes": 1935,
+      "sha256": "18c3df650b3400fba9ac3fdadb8fff77e13f39d152e228092e0bd5f0ba9c2b37"
+    },
+    {
+      "path": "01_core/02_system_sentence_and_state_transitions.md",
+      "bytes": 2626,
+      "sha256": "9fbe4f45f6625bc4ceb4b640379669808294a6e58074058a385f08bb9770afbc"
+    },
+    {
+      "path": "01_core/03_change_levels_and_internal_grid.md",
+      "bytes": 4305,
+      "sha256": "71fe6a025a8566e1e744b31d4f5aeae5c03c59c5ebb34fefad15b28efcd138c2"
+    },
+    {
+      "path": "01_core/04_meta_variables_and_state_ladders.md",
+      "bytes": 2925,
+      "sha256": "c283ff37a1d7d327a5dc7506c4aa8af8db63e084190782fcdec9d5b4dd63d6d7"
+    },
+    {
+      "path": "01_core/05_formal_grammar.md",
+      "bytes": 1301,
+      "sha256": "2ea2589851321f6f6465981a1e885d1859ab52ced46cf36d835321f0f745b118"
+    },
+    {
+      "path": "01_core/06_navigation_and_operators.md",
+      "bytes": 3608,
+      "sha256": "35cc42865269ea6897a67f814a817118e4f448ccfeaa24308369562db916787f"
+    },
+    {
+      "path": "01_core/07_run_laka_and_validation_rules.md",
+      "bytes": 2317,
+      "sha256": "fa0644d381aea010f521c007375dcbe0282f2c7af9ebda90165c92d5fbd2db72"
+    },
+    {
+      "path": "02_operating_modes/00_modes_overview.md",
+      "bytes": 6398,
+      "sha256": "8704af8edf41409f63aa47356582a65fb062759957b3ce8793aa728acbac529b"
+    },
+    {
+      "path": "02_operating_modes/DECODE.md",
+      "bytes": 2120,
+      "sha256": "dd827e74b2a45088ed013d19e5308e09253f4d5e9bd2a8bc28015f081603efc0"
+    },
+    {
+      "path": "02_operating_modes/GENERATE.md",
+      "bytes": 2178,
+      "sha256": "8edadf6b1bc25f80fd5f3b25cb8172fa0eaba80c28aad6dc539945ddf4b12bc0"
+    },
+    {
+      "path": "02_operating_modes/PLAN.md",
+      "bytes": 2032,
+      "sha256": "bcc9d4bce7884be9f639a0e5dedc6a87caf2cce4be46a698ec03b0391cf4e2dc"
+    },
+    {
+      "path": "02_operating_modes/POSITION.md",
+      "bytes": 2153,
+      "sha256": "8213337f1276ad23e156a98078f7dc9dbb7d12d2acf26d43cc7221658556717a"
+    },
+    {
+      "path": "02_operating_modes/PREDICT.md",
+      "bytes": 2365,
+      "sha256": "87d171b0da05f6ab093e455ae285ff4601f3cae13a3302b25407479cbce4ac65"
+    },
+    {
+      "path": "02_operating_modes/SOLVE.md",
+      "bytes": 2074,
+      "sha256": "5b17ba52f3b7c6af540675fbe577617d1d412efc2943d0b5cd1a7a204d634c22"
+    },
+    {
+      "path": "03_prompt_library/700_PROMPT_STEMS.md",
+      "bytes": 404424,
+      "sha256": "d6edfb94cdf4fa50701ed9b650ea2a82e200b8828b018ab17c87c8f4441431f6"
+    },
+    {
+      "path": "03_prompt_library/700_prompt_stems.json",
+      "bytes": 728950,
+      "sha256": "e83eb8ae761cdc9891610724a9c23b6880283263c56a7faa1a7f745cb8a1f842"
+    },
+    {
+      "path": "03_prompt_library/I01_object_prompts.md",
+      "bytes": 41028,
+      "sha256": "f96834c95dc7de7e5c948ab73d6e049c86c826788b6b23177b8cb4592ebb3c64"
+    },
+    {
+      "path": "03_prompt_library/I02_conditions_prompts.md",
+      "bytes": 40920,
+      "sha256": "6813b737aa37a5a96347cd193d702362ebf2487913498e7eab25e11c1c5be559"
+    },
+    {
+      "path": "03_prompt_library/I03_actions_prompts.md",
+      "bytes": 40946,
+      "sha256": "ef5fbb89dc9a97fe2eee37d71441494a43844be64be5adf1f8773def479fdcb2"
+    },
+    {
+      "path": "03_prompt_library/I04_tools_prompts.md",
+      "bytes": 40844,
+      "sha256": "ce26e29ac47c8db6a1bd2f0ecfabe7d18918ad043128c73dc5aaa33f09551741"
+    },
+    {
+      "path": "03_prompt_library/I05_resources_prompts.md",
+      "bytes": 41675,
+      "sha256": "8633d96a326fc72ecf31cbb08a6dc4f0c8510887a314cb444c978d5ca4a82a3d"
+    },
+    {
+      "path": "03_prompt_library/I06_outcomes_prompts.md",
+      "bytes": 41154,
+      "sha256": "4eea02f8e4e206fad5af78dda3bcbe96389507ec9c33560ecfdbc6e35bb05170"
+    },
+    {
+      "path": "03_prompt_library/I07_feedback_prompts.md",
+      "bytes": 40853,
+      "sha256": "f952f0a8a1e43716223e22b77c10d69dfb8b63b622fc99f3f9e356cde6906428"
+    },
+    {
+      "path": "03_prompt_library/I08_constraints_prompts.md",
+      "bytes": 41412,
+      "sha256": "8dbdc57bd90947722ecb6966f221529bd982827eed75f25a1493f72266810d91"
+    },
+    {
+      "path": "03_prompt_library/I09_value_prompts.md",
+      "bytes": 40943,
+      "sha256": "9e42834ae1e639a486add80c627899871bff1a2666195a074dd91b2d5e775d89"
+    },
+    {
+      "path": "03_prompt_library/I10_failure_mode_prompts.md",
+      "bytes": 41806,
+      "sha256": "324ef88661ec2a32eb21a4003b2d5d4b384181ffaab3d2d726ac71986aa3fbfc"
+    },
+    {
+      "path": "03_prompt_library/README.md",
+      "bytes": 1481,
+      "sha256": "271833646804809c45a5799807d7bf56a39fd150edcd9a1ffe568e3b6c1467cc"
+    },
+    {
+      "path": "04_templates/CONCEPT_CARD.md",
+      "bytes": 1615,
+      "sha256": "bdfc9332f93560f9d548cdc05422531ec5ff711221fdd4f23a09fde6cbed5af3"
+    },
+    {
+      "path": "04_templates/FORECAST_LEDGER.md",
+      "bytes": 1846,
+      "sha256": "d3682676de721e2aa42203e1890b17aea8f7a366b3cf30bc88b66fabf2caa1b3"
+    },
+    {
+      "path": "04_templates/RUN_LAKA.md",
+      "bytes": 3578,
+      "sha256": "afb5925e1df953603a4154230e5bd5f3870f7590d181b8bcd6bdca9ec67f5826"
+    },
+    {
+      "path": "04_templates/STRATEGY_AND_POSITIONING.md",
+      "bytes": 2237,
+      "sha256": "e9b23adf1da4a1878f3cf20678dd3c03d667c070f68848ec92e4195f31d7591e"
+    },
+    {
+      "path": "04_templates/WORKSHEET.md",
+      "bytes": 2990,
+      "sha256": "f5abb603254fcd497e03ffb23502346ab7865dc0dc9c0309afb5d650c8e508a7"
+    },
+    {
+      "path": "05_machine_readable/axes.json",
+      "bytes": 7198,
+      "sha256": "505ac61ebfd20bc3807c00f471dd02a9b165046605cf1911c4c890422f79207e"
+    },
+    {
+      "path": "05_machine_readable/blank_run.json",
+      "bytes": 619,
+      "sha256": "13b83b7c6b35edbbeada43588d7aaeb10789242d0b08065e9fa9506541381a3e"
+    },
+    {
+      "path": "05_machine_readable/internal_grid.json",
+      "bytes": 9816,
+      "sha256": "fe25a97b5afcff09a729b83c17bf84962a914993ba8b5d2027273da7d9321e7b"
+    },
+    {
+      "path": "05_machine_readable/laka_run.schema.json",
+      "bytes": 13366,
+      "sha256": "ff5f62acb5a82818b3aadffa14b8d9f04aee073bf9dbf13a4929b1f2ae9b7ec3"
+    },
+    {
+      "path": "05_machine_readable/operators.json",
+      "bytes": 7725,
+      "sha256": "34ae45116332aec9a86bc036fde07c4dd28afe7c3f9ec7810293589cddce922c"
+    },
+    {
+      "path": "05_machine_readable/scoring_rubric.json",
+      "bytes": 2290,
+      "sha256": "e7946cbf815624e989660d714cadd7ec3f635e70709c06ac16eb3fa6ec5f57ad"
+    },
+    {
+      "path": "06_examples/01_customer_support.md",
+      "bytes": 2128,
+      "sha256": "ba1fffdca6d01b8d7c99f35795d2f361e2c7afd5d1cf1e951640fe8d83099f7e"
+    },
+    {
+      "path": "06_examples/02_laka_applied_to_itself.md",
+      "bytes": 2064,
+      "sha256": "f74245a29ea2d1eed5fa5887f491e13b2fbc7b49d11cee53b469ff0f4630dfdf"
+    },
+    {
+      "path": "06_examples/customer_support_run.json",
+      "bytes": 7088,
+      "sha256": "58649b314fd069d4e0c6ce8e935efe6f4da5ed7c145408f0d794f23ba6f1e9cd"
+    },
+    {
+      "path": "07_implementation/DATA_MODEL_GUIDE.md",
+      "bytes": 2888,
+      "sha256": "04969b1963fcff02697bb0f0b6f6fbb8605d543d5983ca667c9dad86a8e06c5c"
+    },
+    {
+      "path": "07_implementation/IMPLEMENTATION_NOTES.md",
+      "bytes": 6647,
+      "sha256": "95d4206d646be231d7a6c924abe50c6b2ea48f7694781936c546ee02cbfd48d8"
+    },
+    {
+      "path": "07_implementation/OPERATOR_DICTIONARY.md",
+      "bytes": 7123,
+      "sha256": "7e617aeac67167516ad23f7300ba4103a908e16951d049a9a6fa97cd63307a05"
+    },
+    {
+      "path": "07_implementation/SCORING_RUBRIC.md",
+      "bytes": 2073,
+      "sha256": "37a645dae65d9549d58df1af6b61c469df6ec61938962ac9e20a92db9ccd5132"
+    },
+    {
+      "path": "08_sources/Predictive_Innovation_Core_Skills_User_Supplied.pdf",
+      "bytes": 27657791,
+      "sha256": "e0dfeb178e75d785cb1520403eeebea23d889d3f156f022861e92854e78b8125"
+    },
+    {
+      "path": "08_sources/SOURCE_NOTES.md",
+      "bytes": 6512,
+      "sha256": "97a7c05fbe661251b6c39162c851b924c754378d5b1621dcf776c83f97619cfa"
+    },
+    {
+      "path": "08_sources/source_map.json",
+      "bytes": 4680,
+      "sha256": "87fc68c8e5664114e19c1891c91b459e743e1e2da203ea5de750a1bff543bd5d"
+    },
+    {
+      "path": "CHANGELOG.md",
+      "bytes": 1100,
+      "sha256": "c28bf5737d7ec8b37d2de6d8c82b51a97e6262b7dfcba141712e4e470e2beef7"
+    },
+    {
+      "path": "LAKA_MASTER_GRAMMAR.md",
+      "bytes": 33037,
+      "sha256": "7c05bdc71a5765a2955d33a860d827dbddb67d29b6ac721a752ac4570c19855f"
+    },
+    {
+      "path": "README.md",
+      "bytes": 4135,
+      "sha256": "caf074cb29a00c5110c142bc6d05b798be8844f8385ef2e0f0add66f13571c65"
+    }
+  ]
+}

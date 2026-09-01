@@ -1,0 +1,61 @@
+{
+  "version": "1.0-draft",
+  "status": "Proposed LAKA heuristic; not a PI formula or empirically validated predictor.",
+  "hard_gates": [
+    "Required permissions and safety boundaries satisfied.",
+    "Hard resource constraints respected.",
+    "Required Outcomes not knowingly violated.",
+    "No identified physical or logical contradiction left unresolved."
+  ],
+  "unknown_policy": "Unknown or disputed hard gates mean hold for investigation. Any missing criterion rating means report no aggregate score, unless a revised rubric is explicitly chosen and versioned before comparison.",
+  "rating_range": [
+    0,
+    4
+  ],
+  "criteria": [
+    {
+      "id": "outcome_contribution",
+      "weight": 0.25,
+      "question": "Does the concept address an important, evidenced Outcome gap?"
+    },
+    {
+      "id": "feasibility",
+      "weight": 0.2,
+      "question": "Can the mechanism be delivered within the stated resources and constraints?"
+    },
+    {
+      "id": "evidence",
+      "weight": 0.15,
+      "question": "How well do relevant observations or tests support the critical claims?"
+    },
+    {
+      "id": "adoption",
+      "weight": 0.15,
+      "question": "Are incentives, switching costs, skills, and practical use conditions addressed?"
+    },
+    {
+      "id": "differentiation",
+      "weight": 0.1,
+      "question": "Is a relevant distinction supported by comparison with actual alternatives?"
+    },
+    {
+      "id": "reversible_learning",
+      "weight": 0.1,
+      "question": "Can the next step reveal useful information with controlled commitment?"
+    },
+    {
+      "id": "robustness",
+      "weight": 0.05,
+      "question": "Does the design handle important variations and failure conditions?"
+    }
+  ],
+  "anchors": {
+    "0": "Known poor fit or serious deficiency on this criterion.",
+    "1": "Weak fit with major unresolved limitations.",
+    "2": "Plausible moderate fit with specific limitations.",
+    "3": "Strong fit supported in relevant conditions.",
+    "4": "Very strong fit supported across the conditions material to this decision."
+  },
+  "formula": "100 * sum(weight_i * rating_i / 4)",
+  "interpretation": "An analyst-defined comparison index from 0 to 100, not a success probability, forecast confidence, or proof of superiority."
+}

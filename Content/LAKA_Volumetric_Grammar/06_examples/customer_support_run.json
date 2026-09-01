@@ -1,0 +1,129 @@
+{
+  "version": "1.0-draft",
+  "run_id": "example-support-001",
+  "mode": "GENERATE",
+  "context": {
+    "actor": "Customers and customer-support staff at a hypothetical company.",
+    "scenario": "Resolve recurring product-use difficulties without reducing successful task completion.",
+    "purpose": "Explore prevention of repeated support problems.",
+    "current_desire": "Spend less effort on repeated confusion.",
+    "desired_outcome": "Customers complete tasks with fewer repeated difficulties and no material degradation in completion.",
+    "time_horizon": "A bounded pilot; actual schedule must be set before testing.",
+    "as_of": null
+  },
+  "baseline": {
+    "Object": "Customer tickets.",
+    "Conditions": "Normal business hours; hypothetical company context.",
+    "Actions": "Agents read tickets, investigate, and reply.",
+    "Tools": "Help-desk application and knowledge base.",
+    "Resources": "Employee time, product knowledge, and ticket history.",
+    "Outcomes": "Ticket resolution.",
+    "Feedback": "Post-resolution surveys and delayed reports.",
+    "Constraints": "Staffing, knowledge gaps, and available permissions.",
+    "Value": "Customers receive help and the provider learns about recurring problems.",
+    "Failure mode": "A growing backlog and repeated unresolved friction."
+  },
+  "evidence": [
+    {
+      "id": "E-HYP-01",
+      "kind": "hypothetical",
+      "statement": "All company conditions, mechanisms, and benefits in this example are invented for illustration, not observed results.",
+      "source": "LAKA conversation worked example",
+      "locator": "LAKA_MASTER_GRAMMAR.md, section 14"
+    }
+  ],
+  "concepts": [
+    {
+      "id": "CONCEPT-001",
+      "title": "Reversible friction-prevention support loop",
+      "status": "hypothetical",
+      "system_sentence": "Under reviewed and consented pilot conditions, support and product staff act on recurring friction using pattern analysis and reversible guidance changes, drawing on de-identified observations and expertise. The intended Outcomes are fewer repeated difficulties and preserved task completion. Approval and privacy constraints bound the work. Feedback from subsequent results corrects or reverses guidance. The primary Failure mode is treating an unusual pattern as general.",
+      "system": {
+        "Object": "Repeated product-friction patterns rather than isolated tickets alone.",
+        "Conditions": "Consented observations, reviewed patterns, and a limited reversible pilot.",
+        "Actions": "Detect recurring confusion, propose guidance changes, and verify effects.",
+        "Tools": "Pattern analysis, reviewed guidance, and reversible content configuration.",
+        "Resources": "De-identified observations, support expertise, product expertise, and review time.",
+        "Outcomes": "Fewer repeated difficulties while preserving successful task completion.",
+        "Feedback": "Task results inform approved guidance changes; later results verify or reverse them.",
+        "Constraints": "Privacy, approval boundaries, limited data, and no uncontrolled high-impact changes.",
+        "Value": "Customers may avoid repeated friction; the provider may reduce repeated work.",
+        "Failure mode": "An unusual behavior is mistaken for a general problem, creating misleading guidance."
+      },
+      "transformations": [
+        {
+          "id": "T-001",
+          "coordinate": {
+            "change_code": "C2",
+            "internal_code": "I01",
+            "meta_code": "M04"
+          },
+          "current_state": "Each incoming ticket is analyzed mainly as an isolated request.",
+          "target_state": "Related tickets and permitted product-use signals are grouped into a recurring friction pattern.",
+          "operators": [
+            "SUBSTITUTE",
+            "MERGE"
+          ],
+          "mechanism": "Group recurring issues by task and confirm common mechanisms with support and product reviewers.",
+          "classification_reason": "Provisional Major Change: the focal unit becomes a cross-request pattern. Final classification depends on the implemented mechanism and comparison baseline.",
+          "evidence_ids": [
+            "E-HYP-01"
+          ]
+        },
+        {
+          "id": "T-002",
+          "coordinate": {
+            "change_code": "C3",
+            "internal_code": "I07",
+            "meta_code": "M07"
+          },
+          "current_state": "Post-resolution surveys inform delayed reports.",
+          "target_state": "Reviewed product-friction evidence feeds an ongoing guidance-change and verification loop.",
+          "operators": [
+            "COUPLE",
+            "SEQUENCE",
+            "STABILIZE"
+          ],
+          "mechanism": "Connect observations to authorized guidance changes and connect later task outcomes back to review or rollback.",
+          "classification_reason": "Structural only if the actual relationship between observations, decisions, changes, and verification is redesigned—not merely if reports are more frequent.",
+          "evidence_ids": [
+            "E-HYP-01"
+          ]
+        }
+      ],
+      "expected_outcomes": [
+        {
+          "statement": "Reduce repeated product-use difficulties while preserving task completion.",
+          "metric": "Repeated difficulty events per eligible task and successful task-completion rate.",
+          "unit": "Events per eligible task; proportion completed.",
+          "direction": "Reduce repeated difficulty without unacceptable deterioration in completion.",
+          "threshold": null
+        }
+      ],
+      "dependencies": [
+        "Permitted, appropriately minimized observations.",
+        "A stable definition of task difficulty.",
+        "An authorized owner for review and rollback.",
+        "A comparison design and success threshold agreed before testing."
+      ],
+      "tests": [
+        {
+          "hypothesis": "A reviewed guidance change reduces a verified recurring difficulty without creating an unacceptable completion-rate decrease.",
+          "measurement": "Compare defined eligible tasks under the pilot and a suitable comparison condition; document sampling and uncertainty.",
+          "success_rule": "Agree a useful reduction and a completion guardrail before the pilot; no numeric result is claimed here.",
+          "stop_rule": "Stop on a permission breach, misleading guidance, or the predefined completion guardrail.",
+          "rollback": "Restore the prior guidance version and document residual impacts."
+        }
+      ],
+      "evidence_ids": [
+        "E-HYP-01"
+      ],
+      "uncertainty": "No performance, adoption, market-novelty, or causal claim has been tested. Thresholds and sample requirements remain to be specified."
+    }
+  ],
+  "notes": [
+    "Illustrative data only.",
+    "The original conversation explored additional Value and Paradigm hypotheses. This JSON example selects two transformations and does not assert a paradigm shift.",
+    "The full conversation example remains in the master document and the Markdown example."
+  ]
+}

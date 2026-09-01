@@ -1,0 +1,129 @@
+{
+  "source": "Predictive Innovation: Core Skills",
+  "author": "Mark Proffitt",
+  "copyright_credit_as_printed": "Mark Frazier, 2012",
+  "isbn": "978-0-578-11728-7",
+  "pdf_pages": 175,
+  "page_numbering": "1-based PDF file pages; printed page information appears in notes.",
+  "references": [
+    {
+      "key": "PI-01",
+      "title": "Authorship and edition",
+      "pdf_page_start_1based": 3,
+      "pdf_page_end_1based": 4,
+      "note": "Title and copyright pages; authored by Mark Proffitt; first published 2012; ISBN 978-0-578-11728-7."
+    },
+    {
+      "key": "PI-02",
+      "title": "Six dimensions",
+      "pdf_page_start_1based": 31,
+      "pdf_page_end_1based": 31,
+      "note": "Chapter 6, printed page 27. Actors, Desires, Scenarios, Alternatives, Outcomes, and Elements."
+    },
+    {
+      "key": "PI-03",
+      "title": "Three-dimensional system description",
+      "pdf_page_start_1based": 39,
+      "pdf_page_end_1based": 39,
+      "note": "Chapter 7, printed page 35. Outcomes, 7-Elements, and 15-Alternatives."
+    },
+    {
+      "key": "PI-04",
+      "title": "Desires, Scenarios, and observable Outcomes",
+      "pdf_page_start_1based": 35,
+      "pdf_page_end_1based": 35,
+      "note": "Chapter 6, printed page 31. Scenarios frame desires; Outcomes are observable criteria."
+    },
+    {
+      "key": "PI-05",
+      "title": "Functions versus Outcomes",
+      "pdf_page_start_1based": 85,
+      "pdf_page_end_1based": 85,
+      "note": "Chapter 11, printed page 82. Functions focus on Actions; Outcomes focus on States."
+    },
+    {
+      "key": "PI-06",
+      "title": "Begin and End States",
+      "pdf_page_start_1based": 100,
+      "pdf_page_end_1based": 100,
+      "note": "Chapter 13, printed page 98. States before and after an Action."
+    },
+    {
+      "key": "PI-07",
+      "title": "Functional Distinctions",
+      "pdf_page_start_1based": 24,
+      "pdf_page_end_1based": 26,
+      "note": "Chapter 5, printed pages 19–21. Also glossary, PDF page 172, printed page 177."
+    },
+    {
+      "key": "PI-08",
+      "title": "Recursion and fractal analogy",
+      "pdf_page_start_1based": 28,
+      "pdf_page_end_1based": 28,
+      "note": "Chapter 5, printed page 23. Prior choices influence subsequent choices."
+    },
+    {
+      "key": "PI-09",
+      "title": "Dilemmas and assumption testing",
+      "pdf_page_start_1based": 124,
+      "pdf_page_end_1based": 127,
+      "note": "Chapter 16, printed pages 123–126. Dilemmas, assumptions, generalizations, and inversion."
+    },
+    {
+      "key": "PI-10",
+      "title": "Multiplying Alternatives and empty cells",
+      "pdf_page_start_1based": 112,
+      "pdf_page_end_1based": 113,
+      "note": "Chapter 14, printed pages 111–112. Organized alternative types and unfilled possibilities."
+    },
+    {
+      "key": "PI-11",
+      "title": "Prediction timing",
+      "pdf_page_start_1based": 156,
+      "pdf_page_end_1based": 156,
+      "note": "Chapter 21, printed page 159. Sequences of innovations, rather than claimed exact dates."
+    },
+    {
+      "key": "PI-12",
+      "title": "Predicting Process",
+      "pdf_page_start_1based": 158,
+      "pdf_page_end_1based": 161,
+      "note": "Chapter 21, printed pages 161–164. Outcomes, Ideal States, Functional Distinctions, and mapped steps."
+    },
+    {
+      "key": "PI-13",
+      "title": "Importance and satisfaction",
+      "pdf_page_start_1based": 163,
+      "pdf_page_end_1based": 167,
+      "note": "Chapter 21, printed pages 166–170. Opportunity Landscape, under-served and over-served Outcomes."
+    },
+    {
+      "key": "PI-14",
+      "title": "PI Alternatives Grid",
+      "pdf_page_start_1based": 42,
+      "pdf_page_end_1based": 42,
+      "note": "Chapter 7, printed page 38. Three Scales by five Directions; not the LAKA change columns."
+    },
+    {
+      "key": "PI-15",
+      "title": "Seven Elements and Tools/Resources",
+      "pdf_page_start_1based": 36,
+      "pdf_page_end_1based": 36,
+      "note": "Chapter 6, printed page 32; also PDF page 101, printed page 99, for Tools and Resources."
+    },
+    {
+      "key": "PI-16",
+      "title": "Scenario Outcomes remain fixed in PI",
+      "pdf_page_start_1based": 78,
+      "pdf_page_end_1based": 78,
+      "note": "Chapter 10, printed page 74. PI treats required Outcomes as fixed for a given Scenario; LAKA purpose-redefinition is a separate extension."
+    },
+    {
+      "key": "PI-17",
+      "title": "Opportunity Score",
+      "pdf_page_start_1based": 167,
+      "pdf_page_end_1based": 167,
+      "note": "Chapter 21, printed page 170. The source defines the score as the absolute difference between Importance and Satisfaction."
+    }
+  ]
+}

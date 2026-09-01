@@ -1,0 +1,159 @@
+{
+  "version": "1.0-draft",
+  "count": 17,
+  "operators": [
+    {
+      "name": "SHIFT",
+      "category": "Navigation",
+      "definition": "Move something to another change level.",
+      "input": "A documented transformation and its claimed level.",
+      "output": "A revised level plus the actual transformation needed to justify it.",
+      "guardrail": "Changing a label alone changes no system.",
+      "example": "Changing a reporting interval is Minor; redesigning who can correct the process may be Structural."
+    },
+    {
+      "name": "ROTATE",
+      "category": "Navigation",
+      "definition": "Examine the same variable through another meta-variable.",
+      "input": "One variable and change level.",
+      "output": "Questions about a different dynamic modifier.",
+      "guardrail": "Keep the mechanism fixed until the rotation reveals a reason to change it.",
+      "example": "Inspect the same Feedback loop for Frequency, then Detectability."
+    },
+    {
+      "name": "INVERT",
+      "category": "Transformation",
+      "definition": "Reverse an assumption, direction, object, action, or outcome.",
+      "input": "An explicit assumption or direction.",
+      "output": "A candidate opposite or alternate assumption.",
+      "guardrail": "An inverted statement is a hypothesis, not a fact.",
+      "example": "Ask whether support should prevent confusion instead of only answer tickets."
+    },
+    {
+      "name": "TRANSFER",
+      "category": "Transformation",
+      "definition": "Move responsibility from one internal variable to another.",
+      "input": "A Function or burden and its current carrier.",
+      "output": "A different carrier and a record of redistributed costs.",
+      "guardrail": "Do not disguise transferred harm or labor as eliminated cost.",
+      "example": "Move repetitive checking from users to a monitored validation process."
+    },
+    {
+      "name": "SUBSTITUTE",
+      "category": "Transformation",
+      "definition": "Replace an object, action, tool, resource, or condition.",
+      "input": "An existing Object, Action, Tool, Resource, or Condition.",
+      "output": "An alternative with equivalent or revised acceptance criteria.",
+      "guardrail": "Check interfaces, dependencies, side effects, and stakeholder acceptance.",
+      "example": "Replace a scheduled report with an event-triggered signal."
+    },
+    {
+      "name": "SPLIT",
+      "category": "Transformation",
+      "definition": "Divide one role, object, action, market, or outcome into several.",
+      "input": "An overloaded role, action, resource, or outcome.",
+      "output": "Separate pieces with interfaces and responsibilities.",
+      "guardrail": "Fragmentation can add coordination burden.",
+      "example": "Separate evidence collection from final decision authority."
+    },
+    {
+      "name": "MERGE",
+      "category": "Transformation",
+      "definition": "Combine roles, actions, tools, resources, or outcomes.",
+      "input": "Several overlapping components or activities.",
+      "output": "A combined mechanism and retained required capabilities.",
+      "guardrail": "Consolidation can create a common failure point.",
+      "example": "Merge duplicate data-entry steps into one validated record."
+    },
+    {
+      "name": "COUPLE",
+      "category": "Relationship",
+      "definition": "Make variables affect each other.",
+      "input": "Two independent or weakly linked variables.",
+      "output": "An explicit dependency or Feedback relationship.",
+      "guardrail": "Specify sign, delay, and saturation; coupling can destabilize.",
+      "example": "Route failed Outcome checks back to workflow owners."
+    },
+    {
+      "name": "DECOUPLE",
+      "category": "Relationship",
+      "definition": "Remove a dependency between variables.",
+      "input": "A dependency and the reason it exists.",
+      "output": "A candidate reduced dependency and replacement coordination.",
+      "guardrail": "Removing a real prerequisite is not an implementable solution.",
+      "example": "Allow low-risk work to proceed independently of a long reporting cycle."
+    },
+    {
+      "name": "STABILIZE",
+      "category": "Control",
+      "definition": "Preserve or return to a desired state.",
+      "input": "Desired reference state and permitted deviations.",
+      "output": "A keep, establish, or restore mechanism.",
+      "guardrail": "A constant target can itself be wrong; distinguish the three stable behaviors.",
+      "example": "Restore a known-good configuration after an unsafe change."
+    },
+    {
+      "name": "DESTABILIZE",
+      "category": "Control",
+      "definition": "Intentionally disrupt an undesirable stable state.",
+      "input": "An undesirable persistent state or reinforcing loop.",
+      "output": "A bounded intervention that breaks persistence.",
+      "guardrail": "Use controlled tests and do not destabilize safety-critical functions.",
+      "example": "Break an internal backlog loop by limiting new work in progress."
+    },
+    {
+      "name": "SEQUENCE",
+      "category": "Composition",
+      "definition": "Arrange alternatives into an implementation path.",
+      "input": "Candidate changes and prerequisite relationships.",
+      "output": "Ordered steps with gates and owners.",
+      "guardrail": "Ordering must follow real dependencies, not column order alone.",
+      "example": "Validate signals before enabling automatic changes."
+    },
+    {
+      "name": "PARALLELIZE",
+      "category": "Composition",
+      "definition": "Allow several actions or paths to operate simultaneously.",
+      "input": "Independent or separable work.",
+      "output": "Concurrent branches with resource allocation and merge rules.",
+      "guardrail": "Parallel branches may compete for shared resources.",
+      "example": "Test two low-risk support explanations in separate experimental cohorts."
+    },
+    {
+      "name": "RECURSE",
+      "category": "Navigation",
+      "definition": "Treat a cell as a complete new volume.",
+      "input": "A cell whose mechanism contains unresolved subproblems.",
+      "output": "A child context and a bounded child volume.",
+      "guardrail": "Set a depth and work budget; keep the parent Outcome and interfaces.",
+      "example": "Analyze signal quality as a child problem of Feedback."
+    },
+    {
+      "name": "OVERLAY",
+      "category": "Comparison",
+      "definition": "Compare systems, competitors, users, scenarios, or periods.",
+      "input": "Representations with comparable context, units, and dates.",
+      "output": "Differences, similarities, unknowns, and evidence-linked gaps.",
+      "guardrail": "Different contexts can create misleading apparent gaps.",
+      "example": "Compare support models on the same user task and Outcome."
+    },
+    {
+      "name": "PRUNE",
+      "category": "Selection",
+      "definition": "Remove alternatives that violate observable Outcomes.",
+      "input": "A candidate and explicit criterion.",
+      "output": "Rejected, deferred, or retained status with a reason.",
+      "guardrail": "Keep the record; insufficient evidence is not proven impossibility.",
+      "example": "Defer a tool-dependent idea until the required access is verified."
+    },
+    {
+      "name": "COMPOSE",
+      "category": "Composition",
+      "definition": "Combine several voxels into a complete system idea.",
+      "input": "Several transformations with stated target states.",
+      "output": "A candidate system with coherent mechanism and shared tests.",
+      "guardrail": "Check contradictory states and higher-order interactions.",
+      "example": "Combine earlier detection, reversible correction, and shared learning."
+    }
+  ]
+}
