@@ -17,10 +17,13 @@
 <meta name="twitter:description" content="Every DigitalStemCell endpoint with parameters, examples and error codes. Public, no API key required.">
 <link rel="icon" sizes="32x32" href="https://designsystem.bowtiekreative.com/brand/favicon-32.png">
 <link rel="apple-touch-icon" href="https://designsystem.bowtiekreative.com/brand/apple-touch-icon-180.png">
+<link rel="manifest" href="/site.webmanifest">
 <link rel="preconnect" href="https://api.digitalstemcell.bowtiekreative.com">
 <link rel="stylesheet" href="https://designsystem.bowtiekreative.com/dist/laka.css">
 <link rel="stylesheet" href="/assets/site.css">
-
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"APIReference","name":"DigitalStemCell API reference","description":"Every DigitalStemCell endpoint with parameters, examples and error codes.","url":"https://digitalstemcell.bowtiekreative.com/reference.html","programmingModel":"REST","publisher":{"@type":"Organization","name":"Bow Tie Kreative","url":"https://bowtiekreative.com"}}
+</script>
 </head>
 <body class="laka">
 <a class="skip" href="#main">Skip to content</a>
@@ -34,7 +37,7 @@
       <a class="laka-header__name" href="/">Digital <span>StemCell</span></a>
     </div>
     <div class="laka-header__right">
-      <button class="laka-btn laka-btn--outline" data-laka-menu="#megamenu" aria-expanded="false" aria-controls="megamenu">Menu</button>
+      <button type="button" class="laka-btn laka-btn--outline" data-laka-menu="#megamenu" aria-expanded="false" aria-controls="megamenu">Menu</button>
       <a class="laka-btn laka-btn--primary" href="/explorer.html">Explorer</a>
     </div>
   </header>
@@ -112,7 +115,7 @@
         <article class="op" id="get-index">
           <div class="op__head">
             <span class="endpoint__method" data-m="GET">GET</span>
-            <h3 class="mono">/v1</h3>
+            <h2 class="mono">/v1</h2>
           </div>
           <p>Service index: version, counts and the endpoint listing.</p>
 <pre><code>curl https://api.digitalstemcell.bowtiekreative.com/v1</code></pre>
@@ -120,7 +123,7 @@
         <article class="op" id="get-health">
           <div class="op__head">
             <span class="endpoint__method" data-m="GET">GET</span>
-            <h3 class="mono">/v1/health</h3>
+            <h2 class="mono">/v1/health</h2>
           </div>
           <p>Liveness check. Returns the loaded coordinate count.</p>
 <pre><code>curl https://api.digitalstemcell.bowtiekreative.com/v1/health</code></pre>
@@ -128,7 +131,7 @@
         <article class="op" id="get-llms">
           <div class="op__head">
             <span class="endpoint__method" data-m="GET">GET</span>
-            <h3 class="mono">/llms.txt</h3>
+            <h2 class="mono">/llms.txt</h2>
           </div>
           <p>Plain-text agent guide: what the grammar is, every route, and the typical flow.</p>
 <pre><code>curl https://api.digitalstemcell.bowtiekreative.com/llms.txt</code></pre>
@@ -136,7 +139,7 @@
         <article class="op" id="get-axes">
           <div class="op__head">
             <span class="endpoint__method" data-m="GET">GET</span>
-            <h3 class="mono">/v1/axes</h3>
+            <h2 class="mono">/v1/axes</h2>
           </div>
           <p>All three axes in one document, with the origin note and the illustrative-state warning.</p>
 <pre><code>curl https://api.digitalstemcell.bowtiekreative.com/v1/axes</code></pre>
@@ -144,11 +147,12 @@
         <article class="op" id="get-axis">
           <div class="op__head">
             <span class="endpoint__method" data-m="GET">GET</span>
-            <h3 class="mono">/v1/axes/{axis}</h3>
+            <h2 class="mono">/v1/axes/{axis}</h2>
           </div>
           <p>One axis on its own.</p>
           <div class="table-wrap">
           <table>
+            <caption class="laka-visually-hidden">Parameters for GET /v1/axes/{axis}</caption>
             <thead><tr><th>Name</th><th>In</th><th>Required</th><th>Description</th></tr></thead>
             <tbody>
               <tr><td><code>axis</code></td><td>path</td><td>required</td><td>One of <code>change-levels</code>, <code>internal-variables</code>, <code>meta-variables</code>.</td></tr>
@@ -158,6 +162,7 @@
 <pre><code>curl https://api.digitalstemcell.bowtiekreative.com/v1/axes/meta-variables</code></pre>
           <div class="table-wrap">
           <table>
+            <caption class="laka-visually-hidden">Error responses for GET /v1/axes/{axis}</caption>
             <thead><tr><th>Status</th><th>When</th></tr></thead>
             <tbody>
               <tr><td><code>404</code></td><td>The axis name is not one of the three.</td></tr>
@@ -168,11 +173,12 @@
         <article class="op" id="get-grid">
           <div class="op__head">
             <span class="endpoint__method" data-m="GET">GET</span>
-            <h3 class="mono">/v1/grid</h3>
+            <h2 class="mono">/v1/grid</h2>
           </div>
           <p>The 50-cell grid pairing each change level with each internal variable, and the intent of that pairing.</p>
           <div class="table-wrap">
           <table>
+            <caption class="laka-visually-hidden">Parameters for GET /v1/grid</caption>
             <thead><tr><th>Name</th><th>In</th><th>Required</th><th>Description</th></tr></thead>
             <tbody>
               <tr><td><code>change</code></td><td>query</td><td>optional</td><td>Change level code, e.g. <code>C3</code>.</td></tr>
@@ -185,11 +191,12 @@
         <article class="op" id="get-coordinate">
           <div class="op__head">
             <span class="endpoint__method" data-m="GET">GET</span>
-            <h3 class="mono">/v1/coordinates/{code}</h3>
+            <h2 class="mono">/v1/coordinates/{code}</h2>
           </div>
           <p>Resolve a full coordinate into its three axis definitions, the grid intent and the prompt stem.</p>
           <div class="table-wrap">
           <table>
+            <caption class="laka-visually-hidden">Parameters for GET /v1/coordinates/{code}</caption>
             <thead><tr><th>Name</th><th>In</th><th>Required</th><th>Description</th></tr></thead>
             <tbody>
               <tr><td><code>code</code></td><td>path</td><td>required</td><td>A coordinate id of the form <code>LAKA-C3-I07-M08</code>.</td></tr>
@@ -199,6 +206,7 @@
 <pre><code>curl https://api.digitalstemcell.bowtiekreative.com/v1/coordinates/LAKA-C3-I07-M08</code></pre>
           <div class="table-wrap">
           <table>
+            <caption class="laka-visually-hidden">Error responses for GET /v1/coordinates/{code}</caption>
             <thead><tr><th>Status</th><th>When</th></tr></thead>
             <tbody>
               <tr><td><code>422</code></td><td>The code is malformed. Change is C0–C4, internal is I01–I10, meta is M01–M14.</td></tr>
@@ -209,11 +217,12 @@
         <article class="op" id="get-prompts">
           <div class="op__head">
             <span class="endpoint__method" data-m="GET">GET</span>
-            <h3 class="mono">/v1/prompts</h3>
+            <h2 class="mono">/v1/prompts</h2>
           </div>
           <p>Search and page the 700 prompt stems. Filters combine with AND.</p>
           <div class="table-wrap">
           <table>
+            <caption class="laka-visually-hidden">Parameters for GET /v1/prompts</caption>
             <thead><tr><th>Name</th><th>In</th><th>Required</th><th>Description</th></tr></thead>
             <tbody>
               <tr><td><code>q</code></td><td>query</td><td>optional</td><td>Free-text search across the prompt stem and the id.</td></tr>
@@ -230,11 +239,12 @@
         <article class="op" id="get-prompt">
           <div class="op__head">
             <span class="endpoint__method" data-m="GET">GET</span>
-            <h3 class="mono">/v1/prompts/{id}</h3>
+            <h2 class="mono">/v1/prompts/{id}</h2>
           </div>
           <p>One prompt stem by coordinate id.</p>
           <div class="table-wrap">
           <table>
+            <caption class="laka-visually-hidden">Parameters for GET /v1/prompts/{id}</caption>
             <thead><tr><th>Name</th><th>In</th><th>Required</th><th>Description</th></tr></thead>
             <tbody>
               <tr><td><code>id</code></td><td>path</td><td>required</td><td>Coordinate id, e.g. <code>LAKA-C0-I01-M01</code>.</td></tr>
@@ -244,6 +254,7 @@
 <pre><code>curl https://api.digitalstemcell.bowtiekreative.com/v1/prompts/LAKA-C0-I01-M01</code></pre>
           <div class="table-wrap">
           <table>
+            <caption class="laka-visually-hidden">Error responses for GET /v1/prompts/{id}</caption>
             <thead><tr><th>Status</th><th>When</th></tr></thead>
             <tbody>
               <tr><td><code>404</code></td><td>No prompt stem carries that id.</td></tr>
@@ -254,7 +265,7 @@
         <article class="op" id="get-modes">
           <div class="op__head">
             <span class="endpoint__method" data-m="GET">GET</span>
-            <h3 class="mono">/v1/modes</h3>
+            <h2 class="mono">/v1/modes</h2>
           </div>
           <p>The six operating modes plus the overview table as Markdown.</p>
 <pre><code>curl https://api.digitalstemcell.bowtiekreative.com/v1/modes</code></pre>
@@ -262,11 +273,12 @@
         <article class="op" id="get-mode">
           <div class="op__head">
             <span class="endpoint__method" data-m="GET">GET</span>
-            <h3 class="mono">/v1/modes/{id}</h3>
+            <h2 class="mono">/v1/modes/{id}</h2>
           </div>
           <p>One mode playbook as Markdown.</p>
           <div class="table-wrap">
           <table>
+            <caption class="laka-visually-hidden">Parameters for GET /v1/modes/{id}</caption>
             <thead><tr><th>Name</th><th>In</th><th>Required</th><th>Description</th></tr></thead>
             <tbody>
               <tr><td><code>id</code></td><td>path</td><td>required</td><td><code>DECODE</code>, <code>GENERATE</code>, <code>PLAN</code>, <code>POSITION</code>, <code>PREDICT</code> or <code>SOLVE</code>.</td></tr>
@@ -276,6 +288,7 @@
 <pre><code>curl https://api.digitalstemcell.bowtiekreative.com/v1/modes/PREDICT</code></pre>
           <div class="table-wrap">
           <table>
+            <caption class="laka-visually-hidden">Error responses for GET /v1/modes/{id}</caption>
             <thead><tr><th>Status</th><th>When</th></tr></thead>
             <tbody>
               <tr><td><code>404</code></td><td>Unknown mode name.</td></tr>
@@ -286,11 +299,12 @@
         <article class="op" id="get-operators">
           <div class="op__head">
             <span class="endpoint__method" data-m="GET">GET</span>
-            <h3 class="mono">/v1/operators</h3>
+            <h2 class="mono">/v1/operators</h2>
           </div>
           <p>The seventeen operators with definition, input, output, guardrail and example.</p>
           <div class="table-wrap">
           <table>
+            <caption class="laka-visually-hidden">Parameters for GET /v1/operators</caption>
             <thead><tr><th>Name</th><th>In</th><th>Required</th><th>Description</th></tr></thead>
             <tbody>
               <tr><td><code>category</code></td><td>query</td><td>optional</td><td>Navigation, Transformation, Relationship, Control, Composition, Comparison or Selection.</td></tr>
@@ -302,11 +316,12 @@
         <article class="op" id="get-operator">
           <div class="op__head">
             <span class="endpoint__method" data-m="GET">GET</span>
-            <h3 class="mono">/v1/operators/{name}</h3>
+            <h2 class="mono">/v1/operators/{name}</h2>
           </div>
           <p>One operator. Case-insensitive.</p>
           <div class="table-wrap">
           <table>
+            <caption class="laka-visually-hidden">Parameters for GET /v1/operators/{name}</caption>
             <thead><tr><th>Name</th><th>In</th><th>Required</th><th>Description</th></tr></thead>
             <tbody>
               <tr><td><code>name</code></td><td>path</td><td>required</td><td>e.g. <code>INVERT</code>.</td></tr>
@@ -316,6 +331,7 @@
 <pre><code>curl https://api.digitalstemcell.bowtiekreative.com/v1/operators/INVERT</code></pre>
           <div class="table-wrap">
           <table>
+            <caption class="laka-visually-hidden">Error responses for GET /v1/operators/{name}</caption>
             <thead><tr><th>Status</th><th>When</th></tr></thead>
             <tbody>
               <tr><td><code>404</code></td><td>Unknown operator name.</td></tr>
@@ -326,7 +342,7 @@
         <article class="op" id="get-core">
           <div class="op__head">
             <span class="endpoint__method" data-m="GET">GET</span>
-            <h3 class="mono">/v1/core</h3>
+            <h2 class="mono">/v1/core</h2>
           </div>
           <p>The seven core framework extracts, listed by id and title.</p>
 <pre><code>curl https://api.digitalstemcell.bowtiekreative.com/v1/core</code></pre>
@@ -334,11 +350,12 @@
         <article class="op" id="get-core-item">
           <div class="op__head">
             <span class="endpoint__method" data-m="GET">GET</span>
-            <h3 class="mono">/v1/core/{id}</h3>
+            <h2 class="mono">/v1/core/{id}</h2>
           </div>
           <p>One core extract as Markdown.</p>
           <div class="table-wrap">
           <table>
+            <caption class="laka-visually-hidden">Parameters for GET /v1/core/{id}</caption>
             <thead><tr><th>Name</th><th>In</th><th>Required</th><th>Description</th></tr></thead>
             <tbody>
               <tr><td><code>id</code></td><td>path</td><td>required</td><td>e.g. <code>formal-grammar</code>.</td></tr>
@@ -348,6 +365,7 @@
 <pre><code>curl https://api.digitalstemcell.bowtiekreative.com/v1/core/formal-grammar</code></pre>
           <div class="table-wrap">
           <table>
+            <caption class="laka-visually-hidden">Error responses for GET /v1/core/{id}</caption>
             <thead><tr><th>Status</th><th>When</th></tr></thead>
             <tbody>
               <tr><td><code>404</code></td><td>Unknown extract id.</td></tr>
@@ -358,7 +376,7 @@
         <article class="op" id="get-templates">
           <div class="op__head">
             <span class="endpoint__method" data-m="GET">GET</span>
-            <h3 class="mono">/v1/templates</h3>
+            <h2 class="mono">/v1/templates</h2>
           </div>
           <p>The five working templates, listed by id and title.</p>
 <pre><code>curl https://api.digitalstemcell.bowtiekreative.com/v1/templates</code></pre>
@@ -366,11 +384,12 @@
         <article class="op" id="get-template">
           <div class="op__head">
             <span class="endpoint__method" data-m="GET">GET</span>
-            <h3 class="mono">/v1/templates/{id}</h3>
+            <h2 class="mono">/v1/templates/{id}</h2>
           </div>
           <p>One template as Markdown.</p>
           <div class="table-wrap">
           <table>
+            <caption class="laka-visually-hidden">Parameters for GET /v1/templates/{id}</caption>
             <thead><tr><th>Name</th><th>In</th><th>Required</th><th>Description</th></tr></thead>
             <tbody>
               <tr><td><code>id</code></td><td>path</td><td>required</td><td><code>run-laka</code>, <code>worksheet</code>, <code>concept-card</code>, <code>forecast-ledger</code> or <code>strategy-and-positioning</code>.</td></tr>
@@ -380,6 +399,7 @@
 <pre><code>curl https://api.digitalstemcell.bowtiekreative.com/v1/templates/run-laka</code></pre>
           <div class="table-wrap">
           <table>
+            <caption class="laka-visually-hidden">Error responses for GET /v1/templates/{id}</caption>
             <thead><tr><th>Status</th><th>When</th></tr></thead>
             <tbody>
               <tr><td><code>404</code></td><td>Unknown template id.</td></tr>
@@ -390,7 +410,7 @@
         <article class="op" id="get-schema-run">
           <div class="op__head">
             <span class="endpoint__method" data-m="GET">GET</span>
-            <h3 class="mono">/v1/schema/run</h3>
+            <h2 class="mono">/v1/schema/run</h2>
           </div>
           <p>The JSON Schema (2020-12) a run document must satisfy.</p>
 <pre><code>curl https://api.digitalstemcell.bowtiekreative.com/v1/schema/run</code></pre>
@@ -398,7 +418,7 @@
         <article class="op" id="get-schema-blank">
           <div class="op__head">
             <span class="endpoint__method" data-m="GET">GET</span>
-            <h3 class="mono">/v1/schema/blank-run</h3>
+            <h2 class="mono">/v1/schema/blank-run</h2>
           </div>
           <p>An empty, schema-valid run document to fill in.</p>
 <pre><code>curl https://api.digitalstemcell.bowtiekreative.com/v1/schema/blank-run</code></pre>
@@ -406,7 +426,7 @@
         <article class="op" id="get-scoring">
           <div class="op__head">
             <span class="endpoint__method" data-m="GET">GET</span>
-            <h3 class="mono">/v1/scoring</h3>
+            <h2 class="mono">/v1/scoring</h2>
           </div>
           <p>The seven weighted criteria, the four hard gates, the rating anchors and the formula.</p>
 <pre><code>curl https://api.digitalstemcell.bowtiekreative.com/v1/scoring</code></pre>
@@ -414,11 +434,12 @@
         <article class="op" id="post-score">
           <div class="op__head">
             <span class="endpoint__method" data-m="POST">POST</span>
-            <h3 class="mono">/v1/score</h3>
+            <h2 class="mono">/v1/score</h2>
           </div>
           <p>Weight a set of 0–4 ratings into a 0–100 comparison index, with the per-criterion contribution shown.</p>
           <div class="table-wrap">
           <table>
+            <caption class="laka-visually-hidden">Parameters for POST /v1/score</caption>
             <thead><tr><th>Name</th><th>In</th><th>Required</th><th>Description</th></tr></thead>
             <tbody>
               <tr><td><code>ratings</code></td><td>body</td><td>required</td><td>Object mapping every criterion id to an integer 0–4.</td></tr>
@@ -438,6 +459,7 @@
   }&#x27;</code></pre>
           <div class="table-wrap">
           <table>
+            <caption class="laka-visually-hidden">Error responses for POST /v1/score</caption>
             <thead><tr><th>Status</th><th>When</th></tr></thead>
             <tbody>
               <tr><td><code>422</code></td><td>A criterion is missing, unknown, or a rating falls outside 0–4.</td></tr>
@@ -448,11 +470,12 @@
         <article class="op" id="post-validate">
           <div class="op__head">
             <span class="endpoint__method" data-m="POST">POST</span>
-            <h3 class="mono">/v1/validate</h3>
+            <h2 class="mono">/v1/validate</h2>
           </div>
           <p>Validate a run document against the run schema. Returns every error with its JSON path.</p>
           <div class="table-wrap">
           <table>
+            <caption class="laka-visually-hidden">Parameters for POST /v1/validate</caption>
             <thead><tr><th>Name</th><th>In</th><th>Required</th><th>Description</th></tr></thead>
             <tbody>
               <tr><td><code>(body)</code></td><td>body</td><td>required</td><td>The run document to validate.</td></tr>

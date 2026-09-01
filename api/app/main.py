@@ -35,6 +35,39 @@ app = FastAPI(
     redoc_url=None,
 )
 
+class HeadRequestMiddleware:
+    """Serve HEAD as GET with the body discarded.
+
+    FastAPI's ``.get()`` decorator registers GET only, so HEAD returns 405 —
+    which link checkers, uptime monitors and the LAKA release gate all read as
+    a broken link. Per RFC 9110 a HEAD response keeps the GET headers
+    (Content-Length included) and carries no body.
+    """
+
+    def __init__(self, app):
+        self.app = app
+
+    async def __call__(self, scope, receive, send):
+        if scope.get("type") != "http" or scope.get("method") != "HEAD":
+            return await self.app(scope, receive, send)
+
+        sent_body = False
+
+        async def send_wrapper(message):
+            nonlocal sent_body
+            if message["type"] != "http.response.body":
+                await send(message)
+                return
+            if sent_body:
+                return
+            sent_body = True
+            await send({"type": "http.response.body", "body": b"", "more_body": False})
+
+        await self.app(dict(scope, method="GET"), receive, send_wrapper)
+
+
+app.add_middleware(HeadRequestMiddleware)
+
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],

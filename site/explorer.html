@@ -17,10 +17,13 @@
 <meta name="twitter:description" content="Run live requests against the DigitalStemCell API from the browser.">
 <link rel="icon" sizes="32x32" href="https://designsystem.bowtiekreative.com/brand/favicon-32.png">
 <link rel="apple-touch-icon" href="https://designsystem.bowtiekreative.com/brand/apple-touch-icon-180.png">
+<link rel="manifest" href="/site.webmanifest">
 <link rel="preconnect" href="https://api.digitalstemcell.bowtiekreative.com">
 <link rel="stylesheet" href="https://designsystem.bowtiekreative.com/dist/laka.css">
 <link rel="stylesheet" href="/assets/site.css">
-
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"DigitalStemCell API explorer","description":"Run live requests against the DigitalStemCell API from the browser.","url":"https://digitalstemcell.bowtiekreative.com/explorer.html","applicationCategory":"DeveloperApplication","browserRequirements":"Requires JavaScript","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"publisher":{"@type":"Organization","name":"Bow Tie Kreative","url":"https://bowtiekreative.com"}}
+</script>
 </head>
 <body class="laka">
 <a class="skip" href="#main">Skip to content</a>
@@ -34,7 +37,7 @@
       <a class="laka-header__name" href="/">Digital <span>StemCell</span></a>
     </div>
     <div class="laka-header__right">
-      <button class="laka-btn laka-btn--outline" data-laka-menu="#megamenu" aria-expanded="false" aria-controls="megamenu">Menu</button>
+      <button type="button" class="laka-btn laka-btn--outline" data-laka-menu="#megamenu" aria-expanded="false" aria-controls="megamenu">Menu</button>
       <a class="laka-btn laka-btn--primary" href="/reference.html">API Reference</a>
     </div>
   </header>
@@ -79,7 +82,7 @@
         <form id="explorer-form" class="laka-card">
           <div class="laka-field">
             <label class="laka-label" for="explorer-preset">Preset</label>
-            <select class="laka-select" id="explorer-preset">
+            <select class="laka-select" id="explorer-preset" name="preset">
             <option value="coordinate">Resolve a coordinate</option>
             <option value="prompts">Search prompt stems</option>
             <option value="axes">List the meta-variables</option>
@@ -94,19 +97,19 @@
           </div>
           <div class="laka-field">
             <label class="laka-label" for="explorer-method">Method</label>
-            <select class="laka-select" id="explorer-method">
+            <select class="laka-select" id="explorer-method" name="method">
               <option value="GET">GET</option>
               <option value="POST">POST</option>
             </select>
           </div>
           <div class="laka-field">
             <label class="laka-label" for="explorer-path">Path</label>
-            <input class="laka-input" id="explorer-path" type="text" value="/v1/coordinates/LAKA-C3-I07-M08" spellcheck="false" autocapitalize="off" autocomplete="off">
+            <input class="laka-input" id="explorer-path" name="path" type="text" value="/v1/coordinates/LAKA-C3-I07-M08" spellcheck="false" autocapitalize="off" autocomplete="off">
             <p class="laka-hint">Begins with a slash, e.g. <code>/v1/prompts?change=C2</code></p>
           </div>
           <div class="laka-field" id="explorer-body-field" hidden>
             <label class="laka-label" for="explorer-body">Request body (JSON)</label>
-            <textarea class="laka-textarea" id="explorer-body" rows="10" spellcheck="false"></textarea>
+            <textarea class="laka-textarea" id="explorer-body" name="body" rows="10" spellcheck="false"></textarea>
           </div>
           <button class="laka-btn laka-btn--primary" type="submit">Send request</button>
         </form>

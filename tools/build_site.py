@@ -89,6 +89,7 @@ def shell(*, slug: str, title: str, description: str, body: str, cta: tuple[str,
 <meta name="twitter:description" content="{html.escape(description)}">
 <link rel="icon" sizes="32x32" href="{BRAND}/brand/favicon-32.png">
 <link rel="apple-touch-icon" href="{BRAND}/brand/apple-touch-icon-180.png">
+<link rel="manifest" href="/site.webmanifest">
 <link rel="preconnect" href="{API_URL}">
 <link rel="stylesheet" href="{BRAND}/dist/laka.css">
 <link rel="stylesheet" href="/assets/site.css">
@@ -106,7 +107,7 @@ def shell(*, slug: str, title: str, description: str, body: str, cta: tuple[str,
       <a class="laka-header__name" href="/">Digital <span>StemCell</span></a>
     </div>
     <div class="laka-header__right">
-      <button class="laka-btn laka-btn--outline" data-laka-menu="#megamenu" aria-expanded="false" aria-controls="megamenu">Menu</button>
+      <button type="button" class="laka-btn laka-btn--outline" data-laka-menu="#megamenu" aria-expanded="false" aria-controls="megamenu">Menu</button>
       <a class="laka-btn laka-btn--primary" href="{cta[0]}">{cta[1]}</a>
     </div>
   </header>
@@ -309,11 +310,12 @@ def _render_op(e: dict) -> str:
     out = [f'        <article class="op" id="{e["anchor"]}">',
            '          <div class="op__head">',
            f'            <span class="endpoint__method" data-m="{e["method"]}">{e["method"]}</span>',
-           f'            <h3 class="mono">{html.escape(e["path"])}</h3>',
+           f'            <h2 class="mono">{html.escape(e["path"])}</h2>',
            "          </div>",
            f'          <p>{e["summary"]}</p>']
     if e.get("params"):
         out += ['          <div class="table-wrap">', "          <table>",
+                f'            <caption class="laka-visually-hidden">Parameters for {e["method"]} {html.escape(e["path"])}</caption>',
                 "            <thead><tr><th>Name</th><th>In</th><th>Required</th><th>Description</th></tr></thead>",
                 "            <tbody>"]
         for name, loc, req, desc in e["params"]:
@@ -322,6 +324,7 @@ def _render_op(e: dict) -> str:
     out.append(f"<pre><code>{html.escape(e['example'])}</code></pre>")
     if e.get("errors"):
         out += ['          <div class="table-wrap">', "          <table>",
+                f'            <caption class="laka-visually-hidden">Error responses for {e["method"]} {html.escape(e["path"])}</caption>',
                 "            <thead><tr><th>Status</th><th>When</th></tr></thead>", "            <tbody>"]
         for code, when in e["errors"]:
             out.append(f"              <tr><td><code>{code}</code></td><td>{when}</td></tr>")
@@ -460,10 +463,11 @@ def render_grammar_body() -> str:
         '<a href="/reference.html">reference</a> is the calling convention.</p>'
     )
 
-    def table(rows, headers):
+    def table(rows, headers, caption):
         h = "".join(f"<th>{x}</th>" for x in headers)
         body = "\n".join("            <tr>" + "".join(f"<td>{c}</td>" for c in r) + "</tr>" for r in rows)
         return ('      <div class="table-wrap">\n        <table>\n'
+                f'          <caption class="laka-visually-hidden">{caption}</caption>\n'
                 f"          <thead><tr>{h}</tr></thead>\n          <tbody>\n{body}\n          </tbody>\n"
                 "        </table>\n      </div>")
 
@@ -474,7 +478,7 @@ def render_grammar_body() -> str:
         + "\n" + table(
             [(f'<code>{c["code"]}</code>', f'<strong>{c["label"]}</strong>', c["definition"], f'<em>{c["operator_examples"]}</em>')
              for c in axes["change_levels"]],
-            ["Code", "Level", "Definition", "Typical operators"])
+            ["Code", "Level", "Definition", "Typical operators"], "The five change levels")
     )
 
     internals = section(
@@ -484,7 +488,7 @@ def render_grammar_body() -> str:
         + "\n" + table(
             [(f'<code>{v["code"]}</code>', f'<strong>{v["label"]}</strong>', v["question"], v["grammar_role"])
              for v in axes["internal_variables"]],
-            ["Code", "Variable", "Question it answers", "Grammar role"])
+            ["Code", "Variable", "Question it answers", "Grammar role"], "The ten internal variables")
     )
 
     metas = section(
@@ -494,7 +498,7 @@ def render_grammar_body() -> str:
         + "\n" + table(
             [(f'<code>{v["code"]}</code>', f'<strong>{v["label"]}</strong>', v["question"])
              for v in axes["meta_variables"]],
-            ["Code", "Meta-variable", "Question it answers"])
+            ["Code", "Meta-variable", "Question it answers"], "The fourteen meta-variables")
     )
 
     coord = section(
@@ -509,7 +513,7 @@ def render_grammar_body() -> str:
         + table(
             [(f'<code>{g["change_code"]}</code> {g["change_level"]}', f'<code>{g["internal_code"]}</code> {g["internal_variable"]}', g["intent"])
              for g in grid if g["change_code"] in ("C0", "C4")],
-            ["Change level", "Internal variable", "Intent"])
+            ["Change level", "Internal variable", "Intent"], "Grid intents for the C0 and C4 rows")
         + '\n      <p class="laka-micro">Showing the C0 and C4 rows. All 50 cells: GET /v1/grid</p>'
     )
 
@@ -542,7 +546,7 @@ def render_grammar_body() -> str:
             ("<code>PREDICT</code>", "Project how meta-variables carry a clause forward."),
             ("<code>PLAN</code>", "Sequence transformations into a feasible order."),
             ("<code>POSITION</code>", "Compare your system sentence against alternatives."),
-        ], ["Mode", "How it reads the volume"])
+        ], ["Mode", "How it reads the volume"], "The six operating modes")
         + '\n      <p class="laka-micro">Each mode ships a full playbook: GET /v1/modes/{id}</p>'
     )
 
@@ -574,25 +578,25 @@ def render_explorer_body() -> str:
         '        <form id="explorer-form" class="laka-card">\n'
         '          <div class="laka-field">\n'
         '            <label class="laka-label" for="explorer-preset">Preset</label>\n'
-        '            <select class="laka-select" id="explorer-preset">\n'
+        '            <select class="laka-select" id="explorer-preset" name="preset">\n'
         f"{presets}\n"
         "            </select>\n"
         "          </div>\n"
         '          <div class="laka-field">\n'
         '            <label class="laka-label" for="explorer-method">Method</label>\n'
-        '            <select class="laka-select" id="explorer-method">\n'
+        '            <select class="laka-select" id="explorer-method" name="method">\n'
         '              <option value="GET">GET</option>\n'
         '              <option value="POST">POST</option>\n'
         "            </select>\n"
         "          </div>\n"
         '          <div class="laka-field">\n'
         '            <label class="laka-label" for="explorer-path">Path</label>\n'
-        '            <input class="laka-input" id="explorer-path" type="text" value="/v1/coordinates/LAKA-C3-I07-M08" spellcheck="false" autocapitalize="off" autocomplete="off">\n'
+        '            <input class="laka-input" id="explorer-path" name="path" type="text" value="/v1/coordinates/LAKA-C3-I07-M08" spellcheck="false" autocapitalize="off" autocomplete="off">\n'
         '            <p class="laka-hint">Begins with a slash, e.g. <code>/v1/prompts?change=C2</code></p>\n'
         "          </div>\n"
         '          <div class="laka-field" id="explorer-body-field" hidden>\n'
         '            <label class="laka-label" for="explorer-body">Request body (JSON)</label>\n'
-        '            <textarea class="laka-textarea" id="explorer-body" rows="10" spellcheck="false"></textarea>\n'
+        '            <textarea class="laka-textarea" id="explorer-body" name="body" rows="10" spellcheck="false"></textarea>\n'
         "          </div>\n"
         '          <button class="laka-btn laka-btn--primary" type="submit">Send request</button>\n'
         "        </form>\n"
@@ -624,7 +628,7 @@ def render_404_body() -> str:
 
 PAGES = [
     dict(slug="index", file="index.html",
-         title="DigitalStemCell API — the LAKA Volumetric Grammar as a REST service",
+         title="DigitalStemCell API — the LAKA Volumetric Grammar",
          description="A public REST API over the LAKA Volumetric Grammar: 700 base coordinates, six operating modes, seventeen operators, run schema and scoring rubric.",
          render=render_index_body, priority="1.0",
          jsonld={"@context": "https://schema.org", "@type": "WebAPI", "name": "DigitalStemCell API",
@@ -634,15 +638,34 @@ PAGES = [
     dict(slug="grammar", file="grammar.html",
          title="The Grammar — DigitalStemCell API",
          description="The three axes of the LAKA Volumetric Grammar: five change levels, ten internal variables, fourteen meta-variables, the 50-cell grid, seventeen operators and six modes.",
-         render=render_grammar_body, priority="0.8"),
+         render=render_grammar_body, priority="0.8",
+         jsonld={"@context": "https://schema.org", "@type": "TechArticle",
+                 "headline": "The LAKA Volumetric Grammar",
+                 "description": "The three axes of the LAKA Volumetric Grammar, the 50-cell grid, seventeen operators and six operating modes.",
+                 "url": f"{SITE_URL}/grammar.html",
+                 "publisher": {"@type": "Organization", "name": "Bow Tie Kreative", "url": "https://bowtiekreative.com"}}),
     dict(slug="reference", file="reference.html",
          title="API Reference — DigitalStemCell API",
          description="Every DigitalStemCell endpoint with parameters, examples and error codes. Public, no API key required.",
-         render=render_reference_body, priority="0.9"),
+         render=render_reference_body, priority="0.9",
+         jsonld={"@context": "https://schema.org", "@type": "APIReference",
+                 "name": "DigitalStemCell API reference",
+                 "description": "Every DigitalStemCell endpoint with parameters, examples and error codes.",
+                 "url": f"{SITE_URL}/reference.html",
+                 "programmingModel": "REST",
+                 "publisher": {"@type": "Organization", "name": "Bow Tie Kreative", "url": "https://bowtiekreative.com"}}),
     dict(slug="explorer", file="explorer.html",
          title="Explorer — DigitalStemCell API",
          description="Run live requests against the DigitalStemCell API from the browser.",
-         render=render_explorer_body, priority="0.7"),
+         render=render_explorer_body, priority="0.7",
+         jsonld={"@context": "https://schema.org", "@type": "WebApplication",
+                 "name": "DigitalStemCell API explorer",
+                 "description": "Run live requests against the DigitalStemCell API from the browser.",
+                 "url": f"{SITE_URL}/explorer.html",
+                 "applicationCategory": "DeveloperApplication",
+                 "browserRequirements": "Requires JavaScript",
+                 "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
+                 "publisher": {"@type": "Organization", "name": "Bow Tie Kreative", "url": "https://bowtiekreative.com"}}),
     dict(slug="404", file="404.html",
          title="Page not found — DigitalStemCell API",
          description="That page is not in the volume.",

@@ -17,10 +17,13 @@
 <meta name="twitter:description" content="The three axes of the LAKA Volumetric Grammar: five change levels, ten internal variables, fourteen meta-variables, the 50-cell grid, seventeen operators and six modes.">
 <link rel="icon" sizes="32x32" href="https://designsystem.bowtiekreative.com/brand/favicon-32.png">
 <link rel="apple-touch-icon" href="https://designsystem.bowtiekreative.com/brand/apple-touch-icon-180.png">
+<link rel="manifest" href="/site.webmanifest">
 <link rel="preconnect" href="https://api.digitalstemcell.bowtiekreative.com">
 <link rel="stylesheet" href="https://designsystem.bowtiekreative.com/dist/laka.css">
 <link rel="stylesheet" href="/assets/site.css">
-
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"TechArticle","headline":"The LAKA Volumetric Grammar","description":"The three axes of the LAKA Volumetric Grammar, the 50-cell grid, seventeen operators and six operating modes.","url":"https://digitalstemcell.bowtiekreative.com/grammar.html","publisher":{"@type":"Organization","name":"Bow Tie Kreative","url":"https://bowtiekreative.com"}}
+</script>
 </head>
 <body class="laka">
 <a class="skip" href="#main">Skip to content</a>
@@ -34,7 +37,7 @@
       <a class="laka-header__name" href="/">Digital <span>StemCell</span></a>
     </div>
     <div class="laka-header__right">
-      <button class="laka-btn laka-btn--outline" data-laka-menu="#megamenu" aria-expanded="false" aria-controls="megamenu">Menu</button>
+      <button type="button" class="laka-btn laka-btn--outline" data-laka-menu="#megamenu" aria-expanded="false" aria-controls="megamenu">Menu</button>
       <a class="laka-btn laka-btn--primary" href="/reference.html">API Reference</a>
     </div>
   </header>
@@ -86,6 +89,7 @@
       </div>
       <div class="table-wrap">
         <table>
+          <caption class="laka-visually-hidden">The five change levels</caption>
           <thead><tr><th>Code</th><th>Level</th><th>Definition</th><th>Typical operators</th></tr></thead>
           <tbody>
             <tr><td><code>C0</code></td><td><strong>Baseline</strong></td><td>Describe, preserve, measure, or standardize the current system.</td><td><em>Observe, map, maintain, measure.</em></td></tr>
@@ -107,6 +111,7 @@
       </div>
       <div class="table-wrap">
         <table>
+          <caption class="laka-visually-hidden">The ten internal variables</caption>
           <thead><tr><th>Code</th><th>Variable</th><th>Question it answers</th><th>Grammar role</th></tr></thead>
           <tbody>
             <tr><td><code>I01</code></td><td><strong>Object</strong></td><td>What is being acted upon?</td><td>The subject: what is being acted upon.</td></tr>
@@ -133,6 +138,7 @@
       </div>
       <div class="table-wrap">
         <table>
+          <caption class="laka-visually-hidden">The fourteen meta-variables</caption>
           <thead><tr><th>Code</th><th>Meta-variable</th><th>Question it answers</th></tr></thead>
           <tbody>
             <tr><td><code>M01</code></td><td><strong>Magnitude</strong></td><td>How much change?</td></tr>
@@ -166,6 +172,7 @@
       <p>The 50-cell grid pairs each change level with each internal variable and names the intent of that pairing. The meta-variable then selects which property of the clause is in play. Fetch any single coordinate from <code>GET /v1/coordinates/{code}</code>.</p>
       <div class="table-wrap">
         <table>
+          <caption class="laka-visually-hidden">Grid intents for the C0 and C4 rows</caption>
           <thead><tr><th>Change level</th><th>Internal variable</th><th>Intent</th></tr></thead>
           <tbody>
             <tr><td><code>C0</code> Baseline</td><td><code>I01</code> Object</td><td>Same object and category</td></tr>
@@ -250,6 +257,7 @@
       </div>
       <div class="table-wrap">
         <table>
+          <caption class="laka-visually-hidden">The six operating modes</caption>
           <thead><tr><th>Mode</th><th>How it reads the volume</th></tr></thead>
           <tbody>
             <tr><td><code>GENERATE</code></td><td>Produce candidate transformations from unfilled coordinates.</td></tr>
