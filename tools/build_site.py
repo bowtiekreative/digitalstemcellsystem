@@ -656,7 +656,7 @@ PAGES = [
                  "publisher": {"@type": "Organization", "name": "Bow Tie Kreative", "url": "https://bowtiekreative.com"}}),
     dict(slug="explorer", file="explorer.html",
          title="Explorer — DigitalStemCell API",
-         description="Run live requests against the DigitalStemCell API from the browser.",
+         description="Run live requests against the DigitalStemCell API from your browser — resolve coordinates, search the 700 prompt stems, score a concept and validate a run document, with no key and nothing stored.",
          render=render_explorer_body, priority="0.7",
          jsonld={"@context": "https://schema.org", "@type": "WebApplication",
                  "name": "DigitalStemCell API explorer",
