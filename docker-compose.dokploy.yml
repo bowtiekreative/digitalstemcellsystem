@@ -1,11 +1,3 @@
-# DigitalStemCell — API + documentation site.
-#
-#   web -> digitalstemcell.bowtiekreative.com      (static docs, nginx)
-#   api -> api.digitalstemcell.bowtiekreative.com  (FastAPI, uvicorn)
-#
-# Dokploy attaches the Traefik routers from its own domain configuration,
-# so no labels are declared here.
-
 services:
   api:
     build:
@@ -16,7 +8,22 @@ services:
       GRAMMAR_DIR: /app/grammar
     expose:
       - "8000"
-
+    labels:
+      - traefik.docker.network=dokploy-network
+      - traefik.http.routers.dsc-grammar-5hydee-88-web.rule=Host(`api.digitalstemcell.bowtiekreative.com`)
+      - traefik.http.routers.dsc-grammar-5hydee-88-web.entrypoints=web
+      - traefik.http.services.dsc-grammar-5hydee-88-web.loadbalancer.server.port=8000
+      - traefik.http.routers.dsc-grammar-5hydee-88-web.service=dsc-grammar-5hydee-88-web
+      - traefik.http.routers.dsc-grammar-5hydee-88-web.middlewares=redirect-to-https@file
+      - traefik.http.routers.dsc-grammar-5hydee-88-websecure.rule=Host(`api.digitalstemcell.bowtiekreative.com`)
+      - traefik.http.routers.dsc-grammar-5hydee-88-websecure.entrypoints=websecure
+      - traefik.http.services.dsc-grammar-5hydee-88-websecure.loadbalancer.server.port=8000
+      - traefik.http.routers.dsc-grammar-5hydee-88-websecure.service=dsc-grammar-5hydee-88-websecure
+      - traefik.http.routers.dsc-grammar-5hydee-88-websecure.tls.certresolver=letsencrypt
+      - traefik.enable=true
+    networks:
+      - dokploy-network
+      - default
   web:
     build:
       context: .
@@ -24,3 +31,22 @@ services:
     restart: unless-stopped
     expose:
       - "80"
+    labels:
+      - traefik.docker.network=dokploy-network
+      - traefik.http.routers.dsc-grammar-5hydee-87-web.rule=Host(`digitalstemcell.bowtiekreative.com`)
+      - traefik.http.routers.dsc-grammar-5hydee-87-web.entrypoints=web
+      - traefik.http.services.dsc-grammar-5hydee-87-web.loadbalancer.server.port=80
+      - traefik.http.routers.dsc-grammar-5hydee-87-web.service=dsc-grammar-5hydee-87-web
+      - traefik.http.routers.dsc-grammar-5hydee-87-web.middlewares=redirect-to-https@file
+      - traefik.http.routers.dsc-grammar-5hydee-87-websecure.rule=Host(`digitalstemcell.bowtiekreative.com`)
+      - traefik.http.routers.dsc-grammar-5hydee-87-websecure.entrypoints=websecure
+      - traefik.http.services.dsc-grammar-5hydee-87-websecure.loadbalancer.server.port=80
+      - traefik.http.routers.dsc-grammar-5hydee-87-websecure.service=dsc-grammar-5hydee-87-websecure
+      - traefik.http.routers.dsc-grammar-5hydee-87-websecure.tls.certresolver=letsencrypt
+      - traefik.enable=true
+    networks:
+      - dokploy-network
+      - default
+networks:
+  dokploy-network:
+    external: true
